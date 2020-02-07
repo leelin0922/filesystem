@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--
+ * Copyright 2013 The Chromium Authors. All rights reserved.  Use of this
+ * source code is governed by a BSD-style license that can be found in the
+ * LICENSE file.
+-->
+<html>
+  <head>
+    <script src='./network.js'></script>
+  </head>
+  <body>
+<h0>
+    <label id="showtitle" style="width:200px;height:32px;font-size:24px;">Network Setup</label>
+    <button id='connect-button'>Connect</button><br>
+    <label id="showipaddr" >Ipaddress: <input type="text" id="ipaddr" name="ipaddr" value="" style="width:160px;height:24px;font-size:20px;"/></label>
+    <label id="shownetmask">Netmask: <input type="text" id="netmask" name="netmask" value="" style="width:160px;height:24px;font-size:20px;"/></label>
+    <label id="showgateway">Gateway: <input type="text" id="gateway" name="gateway" value="" style="width:160px;height:24px;font-size:20px;"/></label>
+    <label id="shownameservers">DNS: <input type="text" id="nameservers" name="nameservers" value="" style="width:160px;height:24px;font-size:20px;"/></label>
+    <label id="showType">Type:
+    <input type="radio" id="manual" name="manual" style="width:40px;height:24px;font-size:20px;">Static IP
+    <input type="radio" id="dhcp" name="dhcp" style="width:40px;height:24px;font-size:20px;">DHCP</label>
+</h0>
+<h1>
+    <button id='send-message-button' style="width:160px;height:30px;font-size:20px;">Setup</button>
+</h1>
+<h0>
+    <label id="ProxyType">Proxy type:
+    <input type="radio" id="proxydirect" name="proxydirect" style="width:40px;height:24px;font-size:16px;">direct
+<!--
+    <input type="radio" id="proxyauto" name="proxyauto" style="width:40px;height:24px;font-size:16px;">auto
+-->
+    <input type="radio" id="proxymanual" name="proxymanual" style="width:40px;height:24px;font-size:16px;">manual</label>
+    <label id="showproxy">Proxy: <input type="text" id="proxyserver" name="proxyserver" value="" style="width:320px;height:24px;font-size:20px;"/> example:http://httpproxy.example.com</label>
+</h0>
+<h1>
+    <button id='proxysetup' style="width:160px;height:30px;font-size:20px;">PROXY-Setup</button>
+</h1>
+    <div id='response'></div><br>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+{
+  // Extension ID: blblinjchgcdgfmaflhliecpbgemdmci
+  //"key": "MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQD2xczMrEwYk+5TylxicTqjFHDiyrluQFPvCa0ErCwD/BQoes2zMsYEVB5Gn1MDyU2WQV6++pD9FeOBHPu4ScGYxyV3CXYBbXjzaigCqqtuTym+gEYaQSN/+w8hWUy2Dk+tTHg0VFGVUYvWiGOOuRm9jzfDbiJvMa/wpxtGgBjn6ROBH9EzxCgtrNqovy/mNCTz0rfM9sjwUQ72hcqsOUlYvGXwzV9IrHzGIAS/pQsjKaWAQFcSY9m/5vKUTGhlp1WZdlxiTHdrXfzPAJhF2GjbdhBnf9oh4oibADNFd/4EbTFYzb5BReqlpj3eZKweoI2GWWkNHYF8GHaD5VeF0NfVAgMBAAECggEAHN/7PU3B37RblEFe+wPdxRxMszTearirOZKrxJqy0cqKv0vTSu8bfYEsQ7470/sXkYfXosgl8/8+Lirqh19WAF75EsswHC2nk+/te5Zl1dP8gfZ3fXX2xfBmDlRpJfpZt2D1xcXCABNZJgKyh45AJU6fS0ZVUCaDvEiJZ//wKh6AX58qcHz7l2B8Zv1rXzB5z1pPmecG2JAfcoun0CKvLIQC6YZNOO4zBSpDdf+AvuIzXuI4AiJhx9+58IjSEweBbcPAF3n2rW1DuxCk2AEg2TQ1WPkcRwyrVMaQZ9cvIUYtoiA8FKygRLxIEzsUeKQbyfl5M+drEzHTf/JEMiYgZwKBgQD9jL20lWbae14xpXqcnCVOTCa+tXWH51BxvhHsq/fTt8iL3wGA0Qa4rwz0d+8GG9xeWRqwr1j9dlvtmTNbIXbf0DEGSBHoC4q6+wnfmeyLh5Jw7H63GnA/O+0Bk1mel7rolN19S8P0Bvtvu/L+QnHgIakUKenBYJyPhYGxDOoCmwKBgQD5KEsCLINkJsdyzI79y46UbZ04GICLcY9cYm2+/q/Qfc93Z2aXq5g2yHbGfocTFjFPmJjo0xjiY0xMZVCdXtfctvRAx5YkXiQsTSqExbG3Oeo/coKBakNJcKNanDdYLosHTqaNnDNMJwlR2RiBa2Tk6DGRt0yOD96xmsxE1DG+TwKBgEute13wDd/+XJIC60LdVEE3d4UKkkb7IsagTadPeMwHmeMtr7wsJ45uKTa6qWwwWqkKfW3pGG2mqy+Sv4JezaVl9YwDbNzOvRysGzlTLwhCcdIktHmgeYpWL5p9yY0Niqsq66UfPSCUCO5DsfZ0DJsyUM4E6JFgbbpkxd37lckrAoGBAOSKUxMxZWvuLjBc9iRSHPyE9xtHTlGZ3pgtKOFymC4z2KN70xz4JuzJQDmeQaP+TUjnfgrB5ydxUcEZhbJ0Fqi7oJvy9wNw3tlMBt42wGaC1x1Pmem/YOzyRsSMWi+msZwIRrnKNzt46xGKgvHjYm6dlSpF6hC8+dYLWacgxGf9AoGATg9YwNNFlAGPZffnNiZj/lhEsYyp9qvfuiKyATKO/q7rZb92Az+VeddD4PteBJEHIJ1YSv+V0zl4ti2rXcDhSjPav/362lvQNkt9TCfsR+tIUTmQMdd/2MS85OzULJt56DGFZazVwSWa7jjVY+AJnIYkSUohtN+QczX/i42WxvE=",
+  "name": "Change password",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "description": "Send a message to a native application.",
+  //"app": {
+  //  "launch": {
+  //    "local_path": "userchange.html"
+  //  }
+  //},
+  "icons": {
+    "16": "16.png",
+    "32": "32.png",
+    "64": "64.png",
+    "128": "128.png"
+  },
+
+  "applications": {
+    "gecko": {
+      "id": "userchange@example.org",
+      "strict_min_version": "50.0"
+    }
+  },
+
+  "background": {
+    "scripts": ["background.js"]
+  },
+
+  "browser_action": {
+    "default_icon": "32.png"
+  },
+
+  "permissions": [
+    "nativeMessaging"
+  ]
+}

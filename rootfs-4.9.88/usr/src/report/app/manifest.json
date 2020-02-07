@@ -1,0 +1,22 @@
+{
+  //"ID":"afbdchpfhcnhhofcmndgbpfoameodpkf"
+  "key": "MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDSN4VTvBksCmg+LmCerkEDUWsnH2u5/ta+0Tc3a3Rmu8rPdXptER3M8I/XsLxX7judgCqsK/oNIxbkO0v4Ly09Ws2WNu2oCPiXYJhEHrL4psen2xsOxa3An7v7W8R9hzSYXXN4JSv3avq5nse5PsGf1EFEx9555Wop0x2hVko7J+VRqQC8emFWBPBEmUgZB5AMdI+KNwIQ62mLbgHqnnaJ8WLzE5zSL4a+r9LorW4L7ViTWPzk8EcuKEfAtigK6AE8nmOCYK9+tM+AXD2xRKj+YopghI/D1a/e5PUzttmf0n9QX1OMgeAKa3VS3BvO5nI8b0fu+YA/cor2SR4WtTAFAgMBAAECggEATWpi8FZaEsz2XMfpjyZvDNDEHFFG8+U0omsb4Y3x/Q91ffcukdH23o1M+8q7Ycp7K+KSVHuRh5r/iCeKL6j4CRtSkNpDpVlAa0cIbDW+BTIuXtOi4ErOVRy+NrAx6WSMavwnVPyjd2dvVEJ0HPVOixS4wKK2fL+O3D5CMDM9/RBmOD/Rv7G7KBik5MjnqJwf6yUC1jMDHwUIc/xh8ArTiVKy5yT2oDzvv0FnPjZ3qA2RSGaGx1Rz+oRQygwNYKYoRET/xoApWKwyNvHnm6WVsd5/rBgiUDNiTyfo/jzrTQIOOX4zJyEiLzhJOfyZD1KuggGLgwmfJDW7yGtv0pHgFQKBgQDw1jLGGVyBW/xmWjMPTlOEbCJanVRez6z/tvFmBEhdTH3t49roP3W+6KY5GRkYtJMNm2JbI+GFIQx+ZRKOmjjY7HPC2bUTFa/J8XZvu7YVD8VFsAwCwivqrbc1qa4nmKp2QYpYPomM5GUcr9pAQpBddVKael9K3UfkbtXm1OdUDwKBgQDfc8rk5+tS0g7D4NrqVkMN1GRCkwY99Sh71HTou3yNrqAOq/ZstWTfKKoZxx48g+vDqoCjPZpExbA/4HN11ewgnlkQho8Ua2vxUYumVhFpXzoQ3ir88wHrb2sTiNNhAHhez0qgr3oms5H7kWl/hc4Z536gsx5esFzdN5kk191WqwKBgQDp3ZaAd7A0jbaTTZO3kT/Yn4jcpVqAlvpPdr8DabU7pEPE9jZkwPr9371KROzx6KfD1tez2SvtsyIGuu9COtBpFXN0CySi27RQTYHNDmLKIP5XpZSEOTmcMgRuv8619LHTE+Hbvx6jCkaFjN5K+Fhn6L3F9H8Em8xsLpTYCnZ4UQKBgDSULZDRVZkmXl0PAtQTOjH94R2dNOHNVxpUMrI0s6kvBvCM3C5WPIcaLXRlWyMIM6jV7PD8ZNl73u4Y5XI7xRUjzXdLAk3evQaKlp6sL+qogqRHcrwUfkYk8IAnOP3hO3Gruza2M7r5lAcq/zUHiiikRTKREztaqm9PTtTRin6DAoGAahJQc52vSBi8oXUqCVYRJZePOjXFAMRf3/Xeb4tjJL/2SbvBUji/lyLCQFLkPOFdOWxQfzPqqk6PL9FVjpoVdzFZYknLNvx2104x/knoWzyBgg9YtwoOCl8dLL3pt5Zq+huvl8AYCTs5IXje5tktr5B01+pNPqpE/7dZ8+RTfEA=",
+  "name": "report",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "description": "Send a message to a native application.",
+  "app": {
+    "launch": {
+      "local_path": "report.html"
+    }
+  },
+  "icons": {
+    "16": "16.png",
+    "32": "32.png",
+    "64": "64.png",
+    "128": "128.png"
+  },
+  "permissions": [
+    "nativeMessaging"
+  ]
+}

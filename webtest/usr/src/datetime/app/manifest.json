@@ -1,0 +1,22 @@
+{
+  // Extension ID: kcciihimnolailelllbcnialoginipmi
+  "key": "MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDQD0EwpGbSRXLstoT679FbuypM5phkVYlqpFc6fSm1PzrR9Cm8aqTpra43rGyYbk4xQxfQG5GahUNQPMqw4a7w94mGPBmlo5YISbQPg0jgbz19zdfj7ZtkPb0NlyROCtRITzqY/CDA3xO6x4Ap1Sa3NihJ4UGjj+o2Y02sBaDJT+HunBjVR+0bTLqfbuTY1osPATItxz6TtALNb4kk0QfDzKEPecJqTG1+DaxTy6d/3CrHut04gBEqWQYJrhbok9TcXQ/rZEFjwoILf1hbOfejo+Vs69e24o15z9QMVSd/BJa5CWCGL36yjSsiZkO1eg1g92E7+RVioS5tw5MsPxC7AgMBAAECggEAVNFzNP5AgIYZZNC/g4ESqz+w7eqvw29vds8KVGjEAQSG2SKdhRdApZbNSBr9pmKJc+GzKn6irAiZuXMe+l72r3tqUBPeLL10o2pQgmZ15jDTM58f3OZ3i7Tzhj/QaBRYGCZccBOQ0q/eXi2IXQVtJBFq+TtgQ+qeg4+WEYO12Xr/NEc/yhnaIW+6Lq981tjQ1y28Mmh/odwE1DwuqokiQrga8kzCWYllooBOXyKMBNAVtVTkqICLBWnmUTpvbr2wJAR62dZih/rftsHNj4cgRxiQU9mMiMwErUnK+YJXn/5KNuCLSQHOxlBts3bXDD17LM3N6r3FDkrm+UJqJIscoQKBgQD/KtFkC1Rbe9OarN0Uyv5EaDB8JCZWJROvJeIRuMolCe602ijr9HVtw/GbrS9OyzR8kxAxVCpnd2JpA8JBSwHFsqLVn62iZxOWwlt2fIz13vm6M557pobJ1n2haIlCy+LiswAKiNJj4HHW3ywvY/0eMQSo7dPtB8V2GB2kTJGLUQKBgQDQvRSD2cZNOXcnkh8Go5gjPKbYFyHjwybUwj9pxTyG864/DLNrebQqwqXOaCWie6RBN5ByI1CKh47aeIEOjK+hUZn3d+wL1/sM4iiLr9ocYASPgRJoczM/UYGWYnk4JTltEWI+s0trLGoSu6DF/rbhu0doVsWZYfCRWB3YzpdASwKBgQC6dnyrIghUDem0xwuLjUc/j++WWAhXvSJkREeucZ3ucRKpwB5VRr+lJaHiBC1k4+OIASO9GGcgUsJsQR3r/rbd1Etf1h7ZZX+QFJknvZ54caeF5QC0FR28UuxdTfm4ASvcQ7gM+qzb5YDq5wzv2J54OJPSKnFKbfpi8P6AOJ/G8QKBgGNJnOl+e9GdxOygl3tr82DHZ8Efd7JD0EOhRdKEy96RKE+7NdioYid4wK9mYIhh8WZIDMANxjCufCe07AZEqwG7s9W/SBr2F+cv6ANRmRioH2M3DM98BGNY3J/wpSIsqp0TiLy0QepvjODuOHIVT14d28BojcMAkBJCbKgE1HLzAoGASIH3HdTeMqCiSi0ZNtMGYQV8AEiAQbhkeA02iS6mkMFxEy7ZGm0AsQ5eOFSqj5ETVPSgCxjAw63vxtWn2iRsWSYwa+8SO83fp9R2gFhHn7bHZxh+lk+fVIXV+YIxaX3yQ7L5B3idc69AG99fF9+Q4SuNC4STLlsdx07wWtp/yVM=",
+  "name": "date & time setup",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "description": "Send a message to a native application.",
+  "app": {
+    "launch": {
+      "local_path": "datetime.html"
+    }
+  },
+  "icons": {
+    "16": "16.png",
+    "32": "32.png",
+    "64": "64.png",
+    "128": "128.png"
+  },
+  "permissions": [
+    "nativeMessaging"
+  ]
+}

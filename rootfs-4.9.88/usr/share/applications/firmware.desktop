@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Firmware version
+Exec=test
+Icon=information.png
+Terminal=false
+Type=Application
+X-MB-SingleInstance=true
+StartupNotify=false
+Comment=20191108

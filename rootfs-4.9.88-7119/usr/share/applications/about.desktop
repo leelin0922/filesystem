@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=about
+Exec=su -c "chromium chrome-extension://dkmjbdkmmdlcmejgicpmocamhaahbmpe/about.html" user
+Icon=about.png
+Terminal=false
+Type=Application
+X-MB-SingleInstance=true
+StartupNotify=false
+Comment=20200204

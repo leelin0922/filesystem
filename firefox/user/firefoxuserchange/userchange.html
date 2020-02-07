@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--
+ * Copyright 2013 The Chromium Authors. All rights reserved.  Use of this
+ * source code is governed by a BSD-style license that can be found in the
+ * LICENSE file.
+-->
+
+<html>
+  <head>
+    <script src='./userchange.js'></script>
+  </head>
+  <body>
+    <button id='connect-button'>Connect</button>
+    <label id="usertitle" style="width:400px;height:40px;font-size:32px;">User:</label>
+    <label id="labeluserpasswd" >Input old  password: 
+        <input id='userpasswd' type='password' style="width:200px;height:25px;font-size:20px;">
+    </label>
+    <label id="labelnewuserpasswd" >Input new password: 
+      <input id='newuserpasswd' type='password' style="width:200px;height:25px;font-size:20px;">
+    </label>
+    <label id="labelcheckuserpasswd"  >Input check password: 
+      <input id='checkuserpasswd' type='password' style="width:200px;height:25px;font-size:20px;">
+    </label>
+    <button id='setuserpasswd' style="width:250px;height:30px;font-size:18px;">Change user password</button>
+    <label id="roottitle"  style="width:400px;height:40px;font-size:32px;">Root:</label>
+    <label id="labelrootpasswd" >Input old password: 
+      <input id='rootpasswd' type='password' style="width:200px;height:25px;font-size:20px;">
+    </label>
+    <label id="labelnewrootrpasswd" >Input new password: 
+      <input id='newrootpasswd' type='password' style="width:200px;height:25px;font-size:20px;">
+    </label>
+    <label id="labelcheckrootpasswd" >Input check password: 
+      <input id='checkrootpasswd' type='password' style="width:200px;height:25px;font-size:20px;">
+    </label>
+    <button id='setrootpasswd' style="width:250px;height:30px;font-size:18px;">Change root password</button>
+    <div id='response'></div>
+  </body>
+</html>

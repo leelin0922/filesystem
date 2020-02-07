@@ -1,0 +1,55 @@
+{
+   "checksum": "a8af5518ec5863b66111c2df782064f6",
+   "roots": {
+      "bookmark_bar": {
+         "children": [ {
+            "children": [ {
+               "date_added": "13192618321124965",
+               "id": "6",
+               "name": "HTML5test - How well does your browser support HTML5?",
+               "type": "url",
+               "url": "https://html5test.com/"
+            }, {
+               "date_added": "13192618429742823",
+               "id": "7",
+               "name": "Sketch Mobile—Multi-touch drawing in HTML5.",
+               "type": "url",
+               "url": "https://sketch.io/mobile/"
+            }, {
+               "date_added": "13192618542212950",
+               "id": "8",
+               "name": "EIZO monitors for offices, photos & design, medicine, gaming and industry",
+               "type": "url",
+               "url": "https://www.eizo.be/monitor-test/"
+            } ],
+            "date_added": "13192618281284130",
+            "date_modified": "13192618542212950",
+            "id": "5",
+            "name": "Test Web Link",
+            "type": "folder"
+         } ],
+         "date_added": "13191407787064225",
+         "date_modified": "13192618321124965",
+         "id": "1",
+         "name": "Bookmarks bar",
+         "type": "folder"
+      },
+      "other": {
+         "children": [  ],
+         "date_added": "13191407787064254",
+         "date_modified": "0",
+         "id": "2",
+         "name": "Other bookmarks",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [  ],
+         "date_added": "13191407787064263",
+         "date_modified": "0",
+         "id": "3",
+         "name": "Mobile bookmarks",
+         "type": "folder"
+      }
+   },
+   "version": 1
+}

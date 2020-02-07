@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+   <script src='./about.js'></script>
+  </head>
+  <body>
+    <label id="showtitle" style="width:200px;height:40px;font-size:25px;">System information</label>
+    <button id='connect-button'  style="width:200px;height:40px;font-size:25px;">Connect</button>
+    <label id="showversion" >Filesystem build date: <input type="text" id="version" name="version" value="" style="width:200px;height:24px;font-size:20px;" disabled/></label>
+    <label id="showcpuinfo" >CPU information: <input type="text" id="cpuinfo" name="cpuinfo" value="" style="width:300px;height:24px;font-size:16px;" disabled/></label>
+    <label id="showcpuspeed" >CPU speed: <input type="text" id="cpuspeed" name="cpuspeed" value="" style="width:300px;height:24px;font-size:16px;" disabled/></label>
+    <label id="showmeminfo" >Memory information: <input type="text" id="meminfo" name="meminfo" value="" style="width:200px;height:24px;font-size:20px;" disabled/></label>
+    <input id='status' type='hidden' />
+    <div id='response'></div>
+  </body>
+</html>

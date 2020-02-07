@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src='./comportutil.js'></script>
+  </head>
+  <body>
+    <label id="showtitle" style="width:160px;height:30px;font-size:24px;">COM Port util</label>
+    <button id='connect-button'>Connect</button><br>
+    <button id='RS232' style="width:160px;height:25px;font-size:20px;"/>RS232</button>
+    <button id='RS422' style="width:160px;height:25px;font-size:20px;"/>RS422</button>
+    <button id='RS422TERM' style="width:160px;height:25px;font-size:20px;"/>RS422TERM</button>
+    <button id='RS485' style="width:160px;height:25px;font-size:20px;"/>RS485</button>
+    <button id='RS485TERM' style="width:160px;height:25px;font-size:20px;"/>RS485TERM</button><br>
+    <select id="serialport"  style="width:160px;height:30px;font-size:20px;" disabled />
+	<option value="/dev/ttymxc0">/dev/ttymxc0</option>
+	<option value="/dev/ttymxc1" selected>/dev/ttymxc1</option>
+	<option value="/dev/ttymxc2">/dev/ttymxc2</option>
+	<option value="/dev/ttymxc3">/dev/ttymxc3</option>
+    </select>
+    <select id="baudrate"  style="width:160px;height:30px;font-size:20px;"/>
+	<option value="1200">1200</option>
+	<option value="2400">2400</option>
+	<option value="4800">4800</option>
+	<option value="9600">9600</option>
+	<option value="19200">19200</option>
+	<option value="38400">38400</option>
+	<option value="115200" selected>115200</option>
+    </select>
+    <br><button id='Comportopen' style="width:160px;height:25px;font-size:20px;"/>Open</button>
+    <button id='Comportclose' style="width:160px;height:25px;font-size:20px;"/>Close</button>
+    <input id='input-text' value='0123456789'  style="width:160px;height:25px;font-size:20px;"/></input>
+    <button id='Comportsendstart'  style="width:160px;height:25px;font-size:20px;"/>Autosend start</button>
+    <button id='Comportsendstop'  style="width:160px;height:25px;font-size:20px;"/>Autosend stop</button>
+    <button id='clearlog'  style="width:160px;height:25px;font-size:20px;"/>Clear log</button>
+    <textarea id="showoutput" maxlength="1024" style="width:610px;height:300px;font-size:20px;" readonly /></textarea>
+    <div id='response'></div>
+    <input id='Opentype' type='hidden' value=0 />
+    <input id='Comporttype' type='hidden'  value='RS232' />
+    <input id='Autosend' type='hidden'  value=0 />
+  </body>
+</html>

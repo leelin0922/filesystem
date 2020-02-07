@@ -1,0 +1,21 @@
+{
+  "key": "MIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQCjt7kEwIJ/WPkYCtcIT4By4AZrmlxoPWWI2PQxpbd75XZ5dE72d/x7zh50othroYVu1ZhK9Jev+ymuvYd94WmJGSiglwvGNzmoMMbnHMOK57pGH3dp5CGleYZUAhshDXqmvF8Ozndl9KBfCm0xukaHXls3aD/AX2UtUTFuDFoIbKx9yEXLIaXjZcHOHCWx1zMHh8Z6N6sKnSNS7GRz1xMwO6Grc4ycOxHWD0tsIP8/jK3Jn9Qjg2DcfGjxKt45pRRT2E8Hme3F4gPfPwaf5akxwgtluOIgObrsw3mmpcDsebMe5Xv9tKPj4bzIgqH9JI56hqE6FJqjaxBj9iTSHsSbAgMBAAECggEABKEffmFn2exXpX+Po2CwIU9xZF3fNWQLDiATDkur0Q6PgjwGNupJ/ZbkqJKpllLhFYhnqohDuR+xMYuSxxNL1dXGyX0L7FpyaxhEqj4CJNg28wr/vZhMVUQG8Ygvtohi3/pyoQC4l+2fZ/XrrtzKvW2EccrPsVkL4N4At6ZqGKktEWCfzscogIlAICyWxlwE93jHGdgXPj3onfqyXKtmyfMQ34HlejFSyR1rQpg592m3/rxLES06Tns3nqgO4obUL5uUqiqHH/wgu0FxXELFCsbTcPWKm63zvfJvHZ5PyatJR7bO/VPhtRpYJRmLMjQh2t/4RpBZJuq5a6Nl9iR2wQKBgQDe99GFKTvcgRipGK/caIvEt6kPE/N3sEYy0VH0dhN9TjgC5ThsxIQZ3wIApL9ttJ/FkKKAzIq3fn3PdUWa6GCSQXY1j7hFRZ6ahA2dkByMQgDcp63alRjAFk+OvUjLerzVuS/DK/2Uo0jhbskCYfoVQ34xSLEw2Osy+fNsFY+WwQKBgQC7+M1mQUuJGR7AJagb2EEAjzhoEO/x63WyDv6FKyFX8mGJAcGD+7SH9qfAhRkPAJjEtBSJojfLdZcp0Ex456DrLvzfdeu/l40mQiRothFF+zcx23JZrzLVgdzT51jZufnK3Puvi3zZ1u81FNXVJeJVER062IFzyu5U8ulKK92uWwKBgQCD6LD3yrEzftyMDaLdDqzBsLY/yVnckVi2b8fAjKpzE3dnnxyGnKxacejJYK4vxRBQ3YSGFnxqmlbsCUEoqBmZ7Uh135TwxoNSfpVfhgado97GrBzamCKQYaKnm6wZVX+qIWj0Wm4nJYLUe6pH0pcVRVy+43aQo4RiICW25/qPAQKBgQCHoWbTuZl/OxjtHD7ImKmOdckFjfMUZAlwiVEtVYmho8qsyQ+Q5DXHRTqVt3P1V0Dj7exDw0DvFdIU4a/MLZX3HNhphPSuMfQu/tq2k2izTijtWKKSA9ByLlngrLV3pLGQpxMT/1n+9Q91BaulOMivCMJGi6IcoviFYyDh2/UAsQKBgQC9L0dZdFyQ0GOl6IdKKMGpq58aqzjnMnalJOs9NyqtFmyH9hBxtxVwtNkdaysdlo5sgZuu37y3VpJxLj+of9MjcjyLSKPjFjs4LlW1W1YgvI8lUxM1pN1kreZ701EUr/bEc14bffKKC/TsJmlpAb4zSKnMEIwyX6C51EQAHXuTIg==",
+  "name": "comportutil ",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "description": "Send a message to a native application.",
+  "app": {
+    "launch": {
+      "local_path": "comportutil.html"
+    }
+  },
+  "icons": {
+    "16": "16.png",
+    "32": "32.png",
+    "64": "64.png",
+    "128": "128.png"
+  },
+  "permissions": [
+    "nativeMessaging"
+  ]
+}

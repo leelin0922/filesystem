@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+   <script src='./report.js'></script>
+  </head>
+  <body>
+    <label id="Systeminformation" style="width:320px;height:40px;font-size:30px;">System information</label>
+    <button id='connect-button'  style="width:400px;height:32px;font-size:25px;">Connect</button>
+    <label id="Chromiumlabel" style="width:240px;height:32px;font-size:25px;">Chromium version :</label>
+    <input id='Chromiumversion' type='text' style="width:600px;height:32px;font-size:20px;" disabled/>
+    <br>
+    <label id="Firefoxlabel" style="width:240px;height:32px;font-size:25px;">Firefox version :</label>
+    <input id='Firefoxversion' type='text' style="width:600px;height:32px;font-size:20px;" disabled/>
+    <br>
+    <label id="Firmwarelabel" style="width:240px;height:32px;font-size:25px;">Firmware version :</label>
+    <input id='Firmwareversion' type='text' style="width:600px;height:32px;font-size:20px;" disabled/>
+    <br>
+    <label id="cpulabel" style="width:240px;height:32px;font-size:25px;">CPU type :</label>
+    <input id='cputype' type='text' style="width:600px;height:32px;font-size:20px;" disabled/>
+    <br>
+    <label id="systemramlabel" style="width:240px;height:32px;font-size:25px;">System memory :</label>
+    <input id='systemram' type='text' style="width:600px;height:32px;font-size:20px;" disabled/>
+    <br>
+    <label id="Storagesizelabel" style="width:240px;height:32px;font-size:25px;">Storage size :</label>
+    <input id='Storagesize' type='text' style="width:600px;height:32px;font-size:20px;" disabled/>
+    <br>
+    <label id="Touchcapabilitylabel" style="width:240px;height:32px;font-size:25px;">Touch capability :</label>
+    <input id='Touchcapability' type='text' style="width:600px;height:32px;font-size:20px;" disabled/>
+    <br>
+    <label id="Resolutionlabel" style="width:240px;height:32px;font-size:25px;">Monitor resolution :</label>
+    <input id='Resolution' type='text' style="width:600px;height:32px;font-size:20px;" disabled/>
+    <br>
+    <label id="Usernamelabel" style="width:200px;height:32px;font-size:25px;">User name :</label>
+    <input id='Username' type='text' value="root" style="width:200px;height:32px;font-size:20px;" />
+    <label id="Passwordlabel" style="width:200px;height:32px;font-size:25px;">Password :</label>
+    <input id='Password' type='password' value="1111" style="width:200px;height:32px;font-size:20px;" />
+    <br>
+    <label id="FTPServerlabel" style="width:200px;height:32px;font-size:25px;">FTP Server :</label>
+    <input id='FTPServer' type='text' value="192.168.20.185" style="width:200px;height:32px;font-size:20px;" />
+    <button id='Sendtoftp'  style="width:200px;height:32px;font-size:20px;"/>Send to FTP</button>
+    <div id='response'></div>
+  </body>
+</html>

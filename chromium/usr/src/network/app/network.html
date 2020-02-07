@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!--
+ * Copyright 2013 The Chromium Authors. All rights reserved.  Use of this
+ * source code is governed by a BSD-style license that can be found in the
+ * LICENSE file.
+-->
+
+<html>
+  <head>
+    <script src='./network.js'></script>
+  </head>
+  <body>
+    <button id='connect-button'>Connect</button><br>
+    <label id="showipaddr" >Ipaddress: <input type="text" id="ipaddr" name="ipaddr" value="" style="width:160px;height:24px;font-size:20px;"/></label>
+    <label id="shownetmask">Netmask: <input type="text" id="netmask" name="netmask" value="" style="width:160px;height:24px;font-size:20px;"/></label>
+    <label id="showgateway">Gateway: <input type="text" id="gateway" name="gateway" value="" style="width:160px;height:24px;font-size:20px;"/></label>
+    <label id="shownameservers">DNS: <input type="text" id="nameservers" name="nameservers" value="" style="width:160px;height:24px;font-size:20px;"/></label>
+    <label id="showType">Type:</label>
+    <label id="showmanual" style="width:80px">Manual<input type="radio" id="manual" name="manual" style="width:160px;height:24px;font-size:20px;"></label>
+    <label id="showdhcp" style="width:80px">DHCP<input type="radio" id="dhcp" name="dhcp" style="width:160px;height:24px;font-size:20px;"></label><br>
+<h1>
+    <button id='send-message-button' style="width:160px;height:30px;font-size:20px;">Setup</button><br>
+</h1>
+    <div id='response'></div><br>
+  </body>
+</html>

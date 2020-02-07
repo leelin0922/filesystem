@@ -1,0 +1,9 @@
+{
+  "name": "onoff",
+  "description": "Example host for native messaging",
+  "path": "/home/user/native-messaging-python/onoff.py",
+  "type": "stdio",
+  "allowed_extensions": [
+    "onoff@example.org" 
+  ]
+}

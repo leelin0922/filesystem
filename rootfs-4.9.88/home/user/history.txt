@@ -1,0 +1,6 @@
+Update history
+Date:20191030
+1,Change password
+2,fix chromium startup page
+Date:20191031
+Add history

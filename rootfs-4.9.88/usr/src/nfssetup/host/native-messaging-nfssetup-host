@@ -1,0 +1,201 @@
+#!/usr/bin/env python
+# Copyright (c) 2012 The Chromium Authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+# A simple native messaging host. Shows a Tkinter dialog with incoming messages
+# that also allows to send message back to the webapp.
+
+import struct
+import sys
+#import threading
+#import Queue
+import os
+import time
+import multiprocessing
+
+ipaddr = ""
+serverip = ""
+nfsroot = ""
+userpassowrd = ""
+passwordstatus = 0
+outputstatus = 0
+
+# Helper function that sends a message to the webapp.
+def send_message(message):
+   # Write message size.
+  sys.stdout.write(struct.pack('I', len(message)))
+  # Write the message itself.
+  sys.stdout.write(message)
+  sys.stdout.flush()
+
+# Thread that reads messages from the webapp.
+def read_thread_func(queue):
+  jiffy = os.sysconf(os.sysconf_names['SC_CLK_TCK'])
+  num_cpu = multiprocessing.cpu_count()
+  message_number = 0
+  #output = os.popen("/sbin/ifconfig 'eth0' | grep 'inet addr:' | awk '{print $2}' | awk -F ':' '{print $2}'")
+  #ipaddr = str(output.read()).rstrip()
+  output = os.popen("sudo /sbin/fw_printenv ipaddr")
+  ipaddr = str(output.read()).rstrip().replace('"','')
+  findret = ipaddr.find('ipaddr=')
+  if findret > -1 :
+    ipaddr = ipaddr.replace('ipaddr=','')
+    sendtext='"' + "ipaddr=" +str(ipaddr)+'"'
+    send_message(sendtext)
+  else :
+    ipaddr = ''
+    output = os.popen("/sbin/ifconfig 'eth0' | grep 'inet addr:' | awk '{print $2}' | awk -F ':' '{print $2}'")
+    ipaddr = str(output.read()).rstrip().replace('"','')
+    if ipaddr :
+      sendtext='"'+ "ipaddr=" +str(ipaddr )+'"'
+      send_message(sendtext)    
+  output = os.popen("sudo /sbin/fw_printenv serverip")
+  serverip = str(output.read()).rstrip().replace('"','')
+  findret = serverip.find('serverip=')
+  if findret > -1 :
+    serverip = serverip.replace('serverip=','')
+    sendtext='"' + "serverip="+str(serverip)+'"'
+    send_message(sendtext)
+  else :
+    serverip = ''
+  output = os.popen("sudo /sbin/fw_printenv nfsroot | grep 'nfsroot='")
+  nfsroot = str(output.read()).rstrip().replace('"','')
+  findret = nfsroot.find('nfsroot=')
+  if findret > -1 :
+    nfsroot = nfsroot.replace('nfsroot=','')
+    sendtext='"' + "nfsroot=" +str(nfsroot)+'"'
+    send_message(sendtext)
+  else :
+    nfsroot = ''
+    #sendtext='"' +str(serverip)+'"'
+    #send_message(sendtext)
+    if serverip :
+      outputstr = "sudo /usr/sbin/showmount -e " + str(serverip) + " | grep rootfs | awk '{print $1}'"
+      output = os.popen(outputstr)
+      nfsroot = str(output.read()).rstrip()
+      #sendtext='"' +str(nfsroot)+'"'
+      #send_message(sendtext)
+      if nfsroot :
+        sendtext='"' + "nfsroot=" +str(nfsroot)+'"'
+        send_message(sendtext)
+
+  while 1:
+    # Read the message length (first 4 bytes).
+    text_length_bytes = sys.stdin.read(4)
+    if len(text_length_bytes) == 0:
+      if queue:
+        queue.put(None)
+      sys.exit(0)
+
+    # Unpack message length as 4 byte integer.
+    text_length = struct.unpack('i', text_length_bytes)[0]
+
+    # Read the text (JSON object) of the message.
+    text = sys.stdin.read(text_length);
+    textstr=text.strip('"')
+    if queue:
+      queue.put(text)
+    else:
+      # In headless mode just send an echo message back.
+      findret = textstr.find('ipaddr:')
+      if findret > -1 :
+        ubootenv = textstr.replace('ipaddr:','')
+        ubootcmd = "sudo /sbin/fw_setenv ipaddr " + ubootenv 
+        os.system(ubootcmd)
+        time.sleep(1)
+        output = os.popen("sudo /sbin/fw_printenv ipaddr")
+        ipaddr = str(output.read()).rstrip()
+        if ipaddr :
+          sendtext='"' +str(ipaddr )+'"'
+          send_message(sendtext)
+        continue
+      findret = textstr.find('serverip:')
+      if findret > -1 :
+        ubootenv = textstr.replace('serverip:','')
+        ubootcmd = "sudo /sbin/fw_setenv serverip " + ubootenv 
+        os.system(ubootcmd)
+        time.sleep(1)
+        output = os.popen("sudo /sbin/fw_printenv serverip")
+        serverip = str(output.read()).rstrip()
+        if serverip :
+          sendtext='"' +str(serverip)+'"'
+          send_message(sendtext)
+        continue
+      findret = textstr.find('nfsroot:')
+      if findret > -1 :
+        ubootenv = textstr.replace('nfsroot:','')
+        #showmount -e 192.168.20.112 | grep '/' | awk -F ' ' '{print $1}'
+        ubootcmd = "sudo /sbin/fw_setenv nfsroot " + ubootenv 
+        os.system(ubootcmd)
+        time.sleep(1)
+        output = os.popen("sudo /sbin/fw_printenv nfsroot")
+        nfsroot = str(output.read()).rstrip()
+        if nfsroot :
+          sendtext='"' +str(nfsroot)+'"'
+          send_message(sendtext)
+        continue
+      findret = textstr.find('checkpassword:')
+      if findret > -1 :
+        passwordstatus =0
+        userpassowrd = textstr.replace('checkpassword:','')
+        ubootcmd = "sudo /usr/bin/checkpassword.out root " + str(userpassowrd) + " | grep 'password pass'" 
+        outputfd = os.popen(ubootcmd)
+        output = str(outputfd .read()).strip()
+        findret = output .find('pass!')
+        if findret > -1 :
+          message = '"' + "checkpassword=pass" + '"'
+          passwordstatus =1
+          send_message(message)
+        #else:
+          #message = '"' + "Checkpasswordfail" + '"'
+          #send_message(message)
+        continue
+      findret = textstr.find('exec-command')
+      if findret > -1 :
+        if passwordstatus != 1 :
+          message = '"' + "Checkpasswordfail" + '"'
+          send_message(message)
+          continue
+        if ipaddr :
+          if len(ipaddr) < 8 :
+            message = '"' + "ipaddr < 8" + '"'
+            send_message(message)
+            continue
+        else :
+          send_message('"ipaddr "')
+          continue
+        if serverip :
+          if len(serverip) < 8 :
+            message = '"' + "serverip < 8" + '"'
+            send_message(message)
+            continue
+        else :
+          send_message('"serverip"')
+          continue
+        if nfsroot  :
+          if len(nfsroot) < 1 :
+            message = '"' + "nfsroot < 1" + '"'
+            send_message(message)
+            continue
+        else :
+          send_message('"nfsroot"')
+          continue
+        #send_message('"sudo /bin/rm /run/media/mmcblk1p1/zImage"')
+        os.system("sudo /bin/rm /run/media/mmcblk1p1/zImage")
+        #send_message('"sudo /bin/sync"')
+        os.system("sudo /bin/sync")
+        #send_message('"time.sleep(1)"')
+        time.sleep(1)
+        send_message('"sudo /sbin/reboot"')
+        os.system("sudo /sbin/reboot")
+        continue
+      text = '"' + textstr + '"'
+      send_message(text )
+
+def Main():
+    read_thread_func(None)
+    sys.exit(0)
+
+if __name__ == '__main__':
+  Main()

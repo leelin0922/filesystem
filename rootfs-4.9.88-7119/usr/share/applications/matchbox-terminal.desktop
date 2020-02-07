@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Terminal
+Comment=When all else fails.
+Exec=su -c "matchbox-terminal" user
+Icon=utilities-terminal
+Terminal=false
+Categories=GTK;Utility;
+StartupNotify=true

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Remove all Test
+Exec=/usr/bin/removereport.sh
+Icon=trash.png
+Terminal=false
+Type=Application
+X-MB-SingleInstance=true
+Comment=Remove all Test
+StartupNotify=false

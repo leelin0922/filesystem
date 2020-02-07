@@ -1,0 +1,1 @@
+arch_compat: imx6ulevk: all any noarch armv5hf_vfp armv5ehf_vfp armv6hf_vfp armv7ahf_vfp armv7vehf_vfp armv7vehf_neon cortexa7hf_vfp cortexa7hf_neon cortexa7hf_neon_mx6ul cortexa7t2hf_neon_mx6ul imx6ulevk

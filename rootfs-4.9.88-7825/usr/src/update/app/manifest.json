@@ -1,0 +1,22 @@
+{
+  //"ID":"ppjbaalgocnfnkjobabcmcompbpbpegg"
+  "key": "MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCsq73+hWWZLg8d2KbfOyYZH0t8PTIVAm2nyBkiWZlo6yruftSQ612NXyNUDrbKjS46mS8iySs8CmlOicyx7DLcSOly5JvogoDdPxx9NkaxIjbBfyIAO49fSh9i2hDjY2ESBG1SbZaSkprOS15xZccLTlQPz2P3UMwg0dYAvDHqPDtEESSmeRieo1pbffr5VTRNpYdDkVzbZ/i09b5ot5I4ce64nzHDhJ3z0P0uhtCBUOs1ciXsHHfCcXrzvFhGn11VN+StWroRNTFApCtAGLAV3GYjv21/nZ6oCSkcGUDDytKajsnuQZYOCxZL1Jpsl9u9tj4VRgtzTY3fiLWROFEjAgMBAAECggEASNjX+kZLG7nr1LqvhCRPKXAjh5HFzElO++cWe4BzkWkNnrrRcSZrPJZzsCXZBlFTvJMd6L4YSGdYEDNgsXul5Xu5SaibAhf0x+K1YToBzv9RPIcnUBPQo/IAldLMJzKpJFHL0We8i6/gMcJoYM0AkYuFOXpUgWWMCRieAYdkQ55d5FAyBI45B/kEAQCYAqcVumbtaA9ufgtktwxZ+IOlWx2/PhcLqDwHXSJN7z72l12/4TAD1UMpKjUSJU+XpPcpu7EoNdqS2mAgqSC5F/QzZLi3utpkGexeBX07FcTKTFJDdENdvfPdJk0HM4vbJTCsw3nDOLq9O91E931qFcgrsQKBgQDfX2XCfbUV5CusERVO9tmYmwZbrCfGu9Y9lAchnSC+7n5Zs9Gd5rzc/wHmHKCrFAFZUzqJ1eiMdtPs0+Cyn2Hc+SikfrL6w/P2Z1vcsR2CnjNwjr+v2isEFGiSAQ5CStK9+MQn8xJKxx00bj5tjeJJLMDyNFDhuTp7dYCcCMmhuwKBgQDF5HJKMw8ya1ceDhJ6//tn1YDZXPGfZ9YSxP/mElcUL9cip27xyEiwHz7kGC1xASnWZBo2YlbIxlJg8lWUCaL5BfPdHJV2rzugvajWnxRnq3QRcjPsrb+jec+jh/dRdZDa3FZeTgTLbaX9yQDlgHIhhcvbM8wxTeg2xFbz4mPDuQKBgD4ATc+Zcv07kz+0kjST4jwws6gYdgX8t2/qObyDz8YPjvS5K/LnS/8PrWhBA/vYlrNDndkKjf0HMrXm7dTG1rQuWLCoFmfyojH/6IiuhOFvphmVFfHq3cvJGmmEb3/JIwvmFBR+rNIiyKF4BE4GdwwWpwvTp6uv7WK9b9BfxA/nAoGBAJSx3x7Z1uVvunoe4MwDZIjU6IhrSjMY9sYLuKzLwxqsB99GKBsM/3E3SS5i7GIpGaK6fOe4ZLVgL64g6STfSNINIvxV6gjQCuHxINiDl/V94yzovxNsSr8vXFHobHGNAVcykMMzpG6m6T8UtdO8/AUsX81J0niJrZ7ZUOzYg1YhAoGAWgUXXMbFqmt0C3FtpnWogOGnmx7b4ADbZ/8lbWcJj0V53BRCtm6WTeBAxy/aSdCOXFElwQy+oUR9zqoslJsHYtpx8j1i+waDEaZgniBujZmvnobvXAG31uEYt3Kr+N6ybc8wTuzjiSlJ3f2CI9dTwOVBblZBDUZGyX8yO0tk2sw=",
+  "name": "EMMC update",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "description": "Send a message to a native application.",
+  "app": {
+    "launch": {
+      "local_path": "update.html"
+    }
+  },
+  "icons": {
+    "16": "16.png",
+    "32": "32.png",
+    "64": "64.png",
+    "128": "128.png"
+  },
+  "permissions": [
+    "nativeMessaging"
+  ]
+}

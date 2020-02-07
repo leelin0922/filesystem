@@ -1,0 +1,22 @@
+{
+  //"ID":"afbdchpfhcnhhofcmndgbpfoameodpkf"
+  "key": "MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCwnaMbVfZj59lteKJqO8pJ1THTBbC71gE4bOfH2v10sjhutX6HxVYer6YjoqxXA7twtu3rPQbllYFQulPQ5/NPsa9M7LmlnTxTmE3Y1SOfYhZAkn5CY4EBwF2vVKMMdWmaBsawItMVGeaLdlaihrPXbfXcSdQ9gayYwfwq0ZN72ujx4GmLfTezcu7JsIHAh1vDKjwwYeEx8qh8mLyuNsUho+C4YSo7utQ3bZaxspAnSn094q2vW76xEnpsRtNOQ4x6xPKC3+qtHDI+Sn6oBnL8BlYzAE0RM9XgYMjz4NvQNE6U+1U5C46mgb2AV18bQU4vS7aCCEjFiVxhDc+0SfR9AgMBAAECggEACwMVLannNjT5TVZReCK4uvBITkJDUf7mrhQ6Qm+Q0JMhKiP2WvROqZSlnQCyUq2YpQ8+1+VC9hMjkDtB6RthRBWN2tPCwoUCgyrSpcOqWDB3Nzj7FtwZ6dhK7xjtnqP+fNxRzJ8rPpxSD92FytXvxi2kwAK5cUlRz+d+d9P/6F+zwKBQvUN3hj8YoOb49qnWDrhCAKAtc4umY2EOfUfcojtreQfp+8WjBTEapODAxj8uHL30wYWy1nCKWJJiIZpbi//UcpAo6vRpH3plzlr8smnfNON43nZe74J+2mTqjGvwmphbutmHckz3NsJ4LLEL7qEan0yBsfUivDZ0LgJNwQKBgQD446h4IS4blkynxfgLm7p8qnx2SX2FxBfbKGwLUbLq6cm0bCLSa46w2WAhURjSJbNKo1miqARxcRuKLNtp1IJfG81XqzXSncnSP5j6B1sZIV04X2PYe9yzhfdrNBNWsHY8nzTi8JM0AER4sHL6b3e2BmKv/vvfQsq6eWO+kCL1PQKBgQC1qWFo1dFS2xgYX1KqQmIaf/ut0hTLtrWTtJhVDt7rFJ/ZepBhkyUGWx2t41MMfWtiKMKeJVZO4sAWQMiS/0a4WfKEl9F4XCvzVkKMdWRJtmntZe7CnfCJdyf8GhA2rolFYIwdiX/WeGrAS4jN6VeQsYu1n0+SiFC72eanyItwQQKBgQDrDO28zfEigpZQWCmCpQbA162FdLBD1UaGZi1rnzOuoS4p43obaRKwOAqOTG15gbtKgOyVLcJMdHqCywxIbTbWpYYPBpVlHDlPA1rwvmOtXxIPvB6qg4eST7Gzn9GnrC1t4RlsPbF3ic0ggduEYiMXV/55ogCy//w/kYa+oJczLQKBgD2CIldKvltdj6UA8Y5wd6MdXmwWS7BGJujiJwn1xQi3rQAH/cbr+YdTZpMv+zipZqiPwIWngrenEv715HPRN3LIEdNPTD+ChecYd+PzA4fp2afl8Ze3vm/tBn7XnFHHevcgn5CIs948W3jMmn+N2HZHh1RxopGs0hkoyG5a+suBAoGBAIBlBlycpYdtTIXt+fZYEZ6BBDAOf1OivmYdN370anC2WlQp2S1CQPV1lGRxFy16Hicbek2J7gFO4xTQn0tQtPWzmtkedR+HIkjUJwAiXmUuWIMmjVXet4CQ4Ihb8vHhWGom5uy5vz7qwQvHGOQSVFgXe3yCyJ6j3vRMJ+Thv0Dh",
+  "name": "nfssetup",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "description": "Send a message to a native application.",
+  "app": {
+    "launch": {
+      "local_path": "nfssetup.html"
+    }
+  },
+  "icons": {
+    "16": "16.png",
+    "32": "32.png",
+    "64": "64.png",
+    "128": "128.png"
+  },
+  "permissions": [
+    "nativeMessaging"
+  ]
+}

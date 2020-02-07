@@ -1,0 +1,9 @@
+{
+  "name": "hardware",
+  "description": "Example host for native messaging",
+  "path": "/home/user/native-messaging-python/hardware.py",
+  "type": "stdio",
+  "allowed_extensions": [
+    "hardware@example.org" 
+  ]
+}

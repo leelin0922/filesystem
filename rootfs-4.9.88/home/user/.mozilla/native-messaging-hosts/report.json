@@ -1,0 +1,9 @@
+{
+  "name": "report",
+  "description": "Example host for native messaging",
+  "path": "/home/user/native-messaging-python/report.py",
+  "type": "stdio",
+  "allowed_extensions": [
+    "report@example.org" 
+  ]
+}

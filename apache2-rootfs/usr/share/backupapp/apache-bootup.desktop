@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=apache bootup
+Comment=apache2 
+Exec=/bin/sh -c "cp /usr/share/applications/apache-start.desktop /etc/xdg/autostart/."
+Icon=applications-games
+Terminal=false
+Type=Application
+Categories=System;Settings;
+StartupNotify=true

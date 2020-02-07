@@ -1,0 +1,21 @@
+{
+  "key": "MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCmQ2B/KQ9Mz8KSDbvhLBwqDvpAnEe7NpDrFhnAzNtmM8icxoAWvAYYNx8siP19P9ul941deb3/uq5ra9AY7WPLE+BdrHhLH2vK5ODsrzgLEHxaZ9ekiJJL8d4+xzIvMn/T7c6L24l2lEhXxeNcEz673vFmavbUE9HMYM+oaeXWeRIIINbryoGIzpapGCRuTQ6Q3hqF1mkudZT05qUx28aiRMtJaQYkgxDUP5olGbPlR33BIXwbJ3pQqthxR1sQUq91OuS5ssaEsbS8j+aitgH+da8uneVZvyz5OsfNPMijI12XZ4f4IlV5x+l5YAI83QctA99tONoTYFF160IBV7ZdAgMBAAECggEAMBkHvmGTcoYb5IKimnZXQ3eHv882FRuo+sku9A6PXdaXL3thLLKCFNlFZG3Q3z3s/etKcwM4CtXnhV3wGnX6S5JZct/lAN57IXvq8a2SyeigAMtPn+J+aAf1YjXf97VlM1r1SJJfBvXIo9O0fTt4B4NsVFOXSizdoYFUMYVJHyz5nDbbfLs4lImAMwMq9tFty75XQsdkhRVERmWYh8DHpif8QHygsjqrtDD26zu9YxuH6u9KvdyNytNqhnXq2V2zDKuSkyGBZd4n+x2xaYaBxYVAXams3w0az83FUiAw4EfAxj2Q3qVVdPVl8hLIpor5AL1nNtyMNTDwRAFqRC/85QKBgQDZCxkZ2EP3Cbxd8wIiWUj7sMsW2SzkrB6+9470FqC4tubgZgfLi3d02kcGY4ZqfUkIMNIZ4S8o79xpDkfXrQzC7CpN2RJy36sU5ZmZhfwZOcglhUb83HJyzLhYB64iqVGRg2WLyRxY0ZhZti0Kxn9FooKM38LROmMGRrO2bXTuBwKBgQDEGvyW2vdW4NuGcKm6tNR7Q2YxEb+9Pdee+Fybmuw0ujVBSVBxQlou4CGOhyPFpdMTBv8/spmnfngiQqA4Oi04wPwu7Fh8DbStg65dU36npM+X6HpmXc+7xLgN/FTNXugaZQUkrQCA32aZsbdyUfRHMiMgnZYvEGqiJLPcrlWfewKBgFe6jqjNq5sdClCHOyObJ07kxRI1Mloz4DGcauHqi4heFbA6TYhOlThcSj0g2WINxglTgnkHdkJ7wYGNTii1P+VCBE93IGfiVIqby5wsdhvUKTxRRMJMcM5KRXD/mblU6y2ACPmZjqWwAn6wjkA+v47sAwziHSLpEMGmrllcoNjdAoGATuRAa3vpdyT8i4g1b+whcvk5WlI2na4MWWK29s6LaebjV8FjwDyeRS9bsJgDNxcv4/6znu99yxkgwT+mbxhQav2QNlxUeIuW/Rr1gYv+bvjpnsYiv53L3VEVbmLtxrUAkOXE/O0wP6ggAYKyNyZrLF0qLovXCFYFX/d9+DCWN5MCgYEA0ljQA05yXte+IIKV+rVj42+Z00N/LxepXnLeK+eR+Dh9R8BCCUFxflM1uK+ZEURBB4u6n6KbNWypbrSYB9AyqYV0TZoZUu0yYfvTRRicCM3kDUm8dEUwnbL1JizuCvLfthQghmPjuaCyFkkS8+PpHgKAQ4HkajSnMU2OsRCz8gM=",
+  "name": "Brightness setup",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "description": "Send a message to a native application.",
+  "app": {
+    "launch": {
+      "local_path": "brightness.html"
+    }
+  },
+  "icons": {
+    "16": "16.png",
+    "32": "32.png",
+    "64": "64.png",
+    "128": "128.png"
+  },
+  "permissions": [
+    "nativeMessaging"
+  ]
+}

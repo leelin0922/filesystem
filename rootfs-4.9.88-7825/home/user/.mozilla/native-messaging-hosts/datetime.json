@@ -1,0 +1,9 @@
+{
+  "name": "datetime",
+  "description": "Example host for native messaging",
+  "path": "/home/user/native-messaging-python/datetime.py",
+  "type": "stdio",
+  "allowed_extensions": [
+    "datetime@example.org"
+  ]
+}

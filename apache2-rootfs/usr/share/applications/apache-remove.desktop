@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=apache remove
+Comment=apache2 
+Exec=/bin/sh -c "rm /etc/xdg/autostart/apache-start.desktop"
+Icon=applications-games
+Terminal=false
+Type=Application
+Categories=System;Settings;
+StartupNotify=true

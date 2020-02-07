@@ -1,0 +1,9 @@
+{
+  "name": "network",
+  "description": "Example host for native messaging",
+  "path": "/home/user/native-messaging-python/network.py",
+  "type": "stdio",
+  "allowed_extensions": [
+    "network@example.org" 
+  ]
+}

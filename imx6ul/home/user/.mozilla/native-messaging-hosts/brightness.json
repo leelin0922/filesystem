@@ -1,0 +1,9 @@
+{
+  "name": "brightness",
+  "description": "Example host for native messaging",
+  "path": "/home/user/native-messaging-python/brightness.py",
+  "type": "stdio",
+  "allowed_extensions": [
+    "brightness@example.org" 
+  ]
+}

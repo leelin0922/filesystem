@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=ALS-OFF
+Comment=i2cset
+Exec=/usr/bin/i2cset -y 2 0x66 1 0
+Icon=applications-games
+Terminal=false
+Type=Application
+Categories=System;Settings;
+StartupNotify=true

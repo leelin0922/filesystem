@@ -1,0 +1,9 @@
+{
+  "name": "eetitool",
+  "description": "Example host for native messaging",
+  "path": "/home/user/native-messaging-python/eetitool.py",
+  "type": "stdio",
+  "allowed_extensions": [
+    "eetitool@example.org" 
+  ]
+}

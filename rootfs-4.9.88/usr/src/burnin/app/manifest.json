@@ -1,0 +1,22 @@
+{
+  //"ID":"afbdchpfhcnhhofcmndgbpfoameodpkf"
+  "key": "MIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQCiOgECM/ugNv1gT0fLvVm7TrCzM+FOkEHnCXRnetm0FkIl0ljWpus6f88E7B/RqGR/X2VSbHpibRotTSuPuaJVh29TwaxyfAggc6skwT13Jl3eSLpgm5a46pM13E0n02FmmnGGKCiC2Dy1GgEcgPmU8xsmiPr/G+leb/3vvfikrMbMBu9LmoNbkAv1x1WaU6U8rqOA/C1Hxp0Lo8wBT6nLcJ9iFuNqetCYdtswuxQ15vul6b6mWpOchYGS+8onHjsTC7o9HY96mE4e2T7/l+fYbgS/VGC4yNEnD/3fR/m/Xd4QUOFTUVc/GV/HSZHO5JuG0Z/2Fa9YhMVqJY4q/7M/AgMBAAECggEAV28fwAo4Yj+BDHluXrbtN/DPd6ZMlsVVX6pO3L7vuwoMGMpoKzjHqz3bW/HPrHYvxB6sQ2JIC+h1pVjkU5Bfl+1o6SGHSiTjVGpDIYotEJzTFszn9s2kzIFRWkQkKYTaCCzRZtcaDntxLMKZOr2gxtDIH1rQvNJUUxvVJ3OiIU5KC/2QWe6un4cEisIHhGTLuQj3ELifu64cZadIkUYMAGeOYeJYeXuMGuhzwYszKZww7Z4L4XTgO3B6Av4uVBhLrJyfoBIBxchdTP1LBzGjjSMUJ0lFIS6Jvmgyw3Fz8vG3EbD62fxaabCPYw9tINTyuXzsqlk2i2Uvh6hRfEwqwQKBgQDRrOuo3dVYZw0KNpIwZSXTTKRtwpov0PrQL9dbfOCP5qBVA1FVyvlZrs3c2s4UIklx9jCIjgq72qbR0Txk2RoWOcRrRe1ipILa32/H9WlO9Q7g+xd3kEn/nHSR3itdSrvdGc/Y4AOW/EMPoH9mbPdLihG6R6Zwu5Szgozy6c/UTwKBgQDGEWlQm6tGeuKPDEKQ4AglarU5SGTbWscpRG1oQ/gk6CpM0u5ayiLQUOBjr6xYtYCsiMhCz5V65g8tUXdfuNscEpNzOkKdO9MgcPPK7z69Txwpl0rd3PaV9ZFW2AuVbCuIxduUp9cTZ8OQHyUVA7jXzedStIX+34ffIuWrU0tGEQKBgQCp9+kY/KqjfPX/H3mmLXhaLzjjmOrwdBG9jeqfyT0oqaWzBHt8dotnfeJ3dA+2Fo0/CnkRWUOuQHMWhuzUO4GAHtfwtcDXQ9CnqJSunWv+i3zCOAkv7RFvWd7NGDJC8AAWHYR1pDKExH2AP3THDPHylDwGq2pq3ESQt/WWPJ8y1QKBgQCjjqEuxT1sF/GaOn+FbtqLO1CnGtbeJFouA6ls3iO9JlI32j6ljiGtb/u7lcd2AXtd/h2QviYrtGp3+7vduaKFzfkgv81eVZaERYGr5GAkp30UAzD5gIvHTV9VHVaDby2L5gbq/KYoChl9m5pdfhNXcVpB+3xi+WcTpZeOIFwaYQKBgQCwMAEkW3oOrI4H1UESGp1/jQtziWcsJoYa0hBzg3Ljyuuu2sXuCMQ2ka/5gFU0dF6lrXR2SG9xgrH5/LmW93wlBqTaUaexy7mFWc5j/qSukEMlpDoqTv+XxeC0ZZGLK8Hj8r+S0Hy6o2hbrgnMkfLLIpLyrIU2vO/lz3pI8uRn9A==",
+  "name": "burn-in test",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "description": "Send a message to a native application.",
+  "app": {
+    "launch": {
+      "local_path": "burnin.html"
+    }
+  },
+  "icons": {
+    "16": "16.png",
+    "32": "32.png",
+    "64": "64.png",
+    "128": "128.png"
+  },
+  "permissions": [
+    "nativeMessaging"
+  ]
+}

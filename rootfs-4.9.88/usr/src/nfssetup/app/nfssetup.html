@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+   <script src='./nfssetup.js'></script>
+  </head>
+  <body>
+<h0>
+    <button id='connect-button'  style="width:200px;height:40px;font-size:25px;">Connect</button>
+</h0>
+    <label id="labeluserpasswd" >Input password: 
+        <input id='userpasswd' type='password' style="width:200px;height:25px;font-size:20px;">
+    </label>
+    <button id='checkpassword' style="width:240px;height:30px;font-size:20px;">Check password</button>
+    <label id="showdeviceipaddr" >ipaddr: <input type="text" id="ipaddr" name="ipaddr" value="" style="width:160px;height:24px;font-size:20px;"/></label>
+    <label id="showserveripaddr" >serverip: <input type="text" id="serverip" name="serverip" value="" style="width:160px;height:24px;font-size:20px;"/></label>
+    <label id="shownfsroot" >nfsroot: <input type="text" id="nfsroot" name="nfsroot" value="" style="width:240px;height:24px;font-size:20px;"/></label>
+    <button id='setup' style="width:240px;height:30px;font-size:20px;">Setup</button>
+    <button id='rebootfromnfs' style="width:240px;height:30px;font-size:20px;background-color:Tomato;">Reboot from NFS</button>
+    <div id='response'></div>
+    <input id='status' type='hidden' />
+  </body>
+</html>
