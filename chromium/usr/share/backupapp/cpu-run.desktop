@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=cpu run
+Comment=run threadtest.out
+Exec=/usr/bin/threadtest.out 0
+Icon=applications-games
+Terminal=false
+Type=Application
+Categories=System;Settings;
+StartupNotify=true

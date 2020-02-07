@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Restore to default
+Exec=/usr/bin/removereport.sh
+Icon=trash.png
+Terminal=false
+Type=Application
+X-MB-SingleInstance=true
+Comment=Clean web browser
+StartupNotify=false

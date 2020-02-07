@@ -1,0 +1,9 @@
+{
+  "name": "about",
+  "description": "Example host for native messaging",
+  "path": "/home/user/native-messaging-python/about.py",
+  "type": "stdio",
+  "allowed_extensions": [
+    "about@example.org" 
+  ]
+}

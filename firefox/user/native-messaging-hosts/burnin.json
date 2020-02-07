@@ -1,0 +1,9 @@
+{
+  "name": "burnin",
+  "description": "Example host for native messaging",
+  "path": "/home/user/native-messaging-python/burnin.py",
+  "type": "stdio",
+  "allowed_extensions": [
+    "burnin@example.org" 
+  ]
+}

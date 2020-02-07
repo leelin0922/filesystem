@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=cpu stop
+Comment=kill threadtest.out
+Exec=killall threadtest.out
+Icon=applications-games
+Terminal=false
+Type=Application
+Categories=System;Settings;
+StartupNotify=true

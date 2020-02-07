@@ -1,0 +1,38 @@
+{
+  //"ID":"fiihbecnjccenbmemmpbcjimncgohbda"
+  "key": "MIIEwAIBADANBgkqhkiG9w0BAQEFAASCBKowggSmAgEAAoIBAQDfmhPRy3t10ba1nNMYGyLH1rz3wNOMOOLCs/valmX13Fb7i0Lv67/eN/VYg7+9ZZqR0PU5aYNCQNTBk1PqCp6mQUoeo6WwfV7ux7JUh0xF3gIFRE7odk4deyTuDRLw5LnnNbiKWd8tgCPdTsMch6KmR49JcAhi1vUw5NM0yaMu16MLUwaIYdrddyoVuTFx99MqmDAPPeu1HyhMFzpFlPfDcPtPWSQ3q9MLLja/FfAkEsUgzGGWrcpXP4pfFVdF+PQRccyq1JsjBm8GlfEocmfK/+svzZmFhjfkK5LbchNpRT/ILOp5QdZ2m33RhBMxoQwtZZFcKJtRpgHYFTHZCsevAgMBAAECggEBALKdAp4AnFOGPRwf9OP5sTPPDk4eQx5sxn7fhRycLUBTTUxMdyDtweuB6cNWItDpG6rFL044Qbinzwv+Yva+mvKVjt6gvJcZ3r6A2Kv7E+tvp0+LvDinYEjeeKaL3Qh+vR27ZPlnRwayqHN9GhBtLHkFCqmQC7LgoSX4c9pkA61C5z9oXZqkcyRP5Dn1QSBa2mmD41KPIHBUAXsJ/6YbNoL+cP4/FpOsVvvZNzJXDUmm5ZfuZOxoLqKhKt3eHxQD002T+ohqg8ag5Jw9DGrwdQcnsBy4a8enaayNYWf+BjmrwHZJU0DYQtbTDt2Ozc4jcAPh9hP7kSibndGPkF5sKPECgYEA9i+QrTGWt6p3o7Cvy6UPlLlUNDIKT3gFjZebwKrrodtQDKvfJMXatQ6ikq3k1k8ZIP+CSGqSe/I0rnglgZxfdpwn4MU+RvijDxIZUl/hz8hfePWYCLrGxaDsGkOw0yWpXaAw/wpGfr10p3Czt++5xIfHUTtD9xk0/JNtaj85eNkCgYEA6IQIgbngNblVQ8rsgHfGrfutcGCnfEKiJpDOks/bN1VBckGduHxovsQjNpcorplcA3F2Uecn+ygoOfAdlhxJbaWHJQQK1q+KnxDMDSNAc1sv8afbTWCLXFD0XBx4IPbZgKXlBE74Cdz3kk9vqxLL1McUvfDBzI7L2z34AureL8cCgYEA0MlkPM5qkVe8YZHudZqGTU6kECREREN5Ci2DBXKvpjSWfjihZdF6+8TusdFS20J4AFlSB9KCayXt8e2peXPCLpie5WzCtXQW7igeW5M/snWwKqi3COhGvcMNmfTAmUI+kk3SX+o6ATDyJzNY5+0isn+o1caajIzPOEpcKBh4yHkCgYEAhgCiDnGbgBrhwwJOLvPYsyibGmr526ljXiqSgxX71vXxk/Gw/kPk8hyD1tBjB80mtG1NrYI1DpBkLo/t3TdMMj71liWwQW5Fy8qYbvHkERd6mCEPSJbdekTFr9hQe18IlxYE2OjSFo0cuVvClattgaGCmL0KU+PwJNif+L53cr0CgYEAshuxZS+ZFB8ruWOYDm2LKwsMLzfN6EwB2NTAyW6RRMggCW/D0Qwt/K8ORUThvcRnIHRmr0FD4tnFBCAgWwQrmt+JhkgEYgmQbZSKWV6nTt8UoYxJKJS2d2ROEmgrAlo/BlH6IxKNEbM6ac03PU1UXQPTcZQaDF1/5bnsJBdeJZY=",
+  "name": "hardware test",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "description": "Send a message to a native application.",
+  "app": {
+    "launch": {
+      "local_path": "hardware.html"
+    }
+  },
+  "icons": {
+    "16": "16.png",
+    "32": "32.png",
+    "64": "64.png",
+    "128": "128.png"
+  },
+
+  "applications": {
+    "gecko": {
+      "id": "hardware@example.org",
+      "strict_min_version": "50.0"
+    }
+  },
+
+  "background": {
+    "scripts": ["background.js"]
+  },
+
+  "browser_action": {
+    "default_icon": "32.png"
+  },
+
+  "permissions": [
+    "nativeMessaging"
+  ]
+}

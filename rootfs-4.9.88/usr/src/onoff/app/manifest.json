@@ -1,0 +1,23 @@
+{
+  //"ID":"doillmdcjpebmnjfiodeiinmofnmimmc"
+  "key": "MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDObcAGMvUjpv9YTsF6Ypf/7uzNoNogRuU6rsYRG/BSJEDnvigk7tW3VLB8kj9Tus3kDJa400Mla7Gb9aTdwdLTh1mRllMAh6snD8aLveZ87AQ8uMxQIvAHWUw82ANDAc6dlnxET7cFDUOZ4z7FEikmD8/ObJBbhXWb0dmavZocZ4lUeNunnDtOBRL7RY4mlg0pi4l2Af6JYyUcO1kM/aBc/q6QCcayM3Ki2PK85v3N8LJRKWpcr2DeqsMzLxeTQ6JZyMz12/fZ0iUABpPxZ/V0CVdivRXfGTCRxOj9oWCyY3GekipXc6BH0p495++w8p937nbH6YCD1NRKZBMcxBrtAgMBAAECggEBAMRRXfjHR5mDfX4HUDvLPlFZcX3RxwBBTEn140psLq5/6fY7Q0R0m23CLiIal/1SP/LtAf5+dHJHLF9tS0DWz2D6bPVnaEKtw9jfSOynSmdtsk3pVe20fGAQzc9jhB6avlvivQXeZel5Btx4YL7dGaMoEHJ5jwRrNUFeXruqK8FsA1rAxEeFIzqLVG3qoNmxuxM1BHsLgbhaLORuxsWAhVBxVH1T3uUWGCd+wc0+U5lzhZNgtOt+KDRzkjqN0CdmtnZ6wZ2ylVpXMttfdQc99EHjjiIU8JYTj7z5ddufHiIMnDY6ROmx4s71bvbercViUGqr3sxWpk0gpj00DwQbI6UCgYEA+W1AicCR1/au2eyOXMcOIQLWbHlymGmg+MW5N9GmPQb+P/urAERwAXSRg3kayBwhTevOst73iZEDBPFtmzSyR9Fdh1Te6Gl6yjy+i8FMO75VWulcWgEotsRfeZy00IsDSWiqrqPiO5pjMbalsrEK6LGmHuA22p2vbRP0fFY8vgcCgYEA095pzi2RBkgkL+BiXURtmnfcSVd/UtpVAawUGL6tadzaKOZC7zgfCiDp/aJsOJ6zv90DYF5tiS297av8CZ3phNV5+ubRLECZWMn3hZQ0eGQT/eWS6joM9QE44hSme/LwGUfr2UisqxH5dN11HAmo56b8xA84ocSVwj2iiCHOYmsCgYBXiwrtzlLh88jm3+oPkiXZXD+aDv4zlE9VQUCC4Ohx3vR5zID2NQ8C08EG3giSV50w1iTUDwHenLDsmTgZE2PHZSpoh1c9R1g7hxpxvsRc667Vm7Y4ONPrYf0ImAG2eDQNHdlaNlb/CG7sUejSUOU9Sqy9hYB7NoENzcUvpqznHQKBgEoXwvq2lrwSqI0RtHSXhJj7h88iSUWpUwcVraWFsVGPSb/53riX8Mry/cGUdrJKVeQoH5EpFLdfhsdCWQ7n6Y1ptpHW/Jm0MayKXQSa8sqTfSZSjdFZ4cQg3Eq8HAjGyc6dh05iivf8fjevZtAaVLZGgKj0BcMU46adNWTUJb/nAoGASM82e9D9kA8S6fnWj1O3MWlKJElB69oYT67sogLIYI54KYN+/uAblUtzbJ/veu0i5kW3T8UJLq6gk2FOoxKkhnuvDDElntuv4Q8CG8pdQ632f/SQYoBBN+bIa/lPl8eK5CtTwjfFbIw16lBmVOSYOS+nZjprlm1M1t1SZXKdn70=",
+  //"name": "Native Messaging OnOff",
+  "name": "on-off test",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "description": "Send a message to a native application.",
+  "app": {
+    "launch": {
+      "local_path": "onoff.html"
+    }
+  },
+  "icons": {
+    "16": "16.png",
+    "32": "32.png",
+    "64": "64.png",
+    "128": "128.png"
+  },
+  "permissions": [
+    "nativeMessaging"
+  ]
+}

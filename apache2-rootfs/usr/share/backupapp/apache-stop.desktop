@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=apache stop
+Comment=apache2
+Exec=/bin/sh -c "apachectl -k stop"
+Icon=applications-games
+Terminal=false
+Type=Application
+Categories=System;Settings;
+StartupNotify=true

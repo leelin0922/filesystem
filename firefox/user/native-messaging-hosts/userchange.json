@@ -1,0 +1,9 @@
+{
+  "name": "userchange",
+  "description": "Example host for native messaging",
+  "path": "/home/user/native-messaging-python/userchange.py",
+  "type": "stdio",
+  "allowed_extensions": [
+    "userchange@example.org" 
+  ]
+}

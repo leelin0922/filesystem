@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Remove Test
+Exec=/usr/bin/removetest.sh
+Icon=hellowindow
+Terminal=false
+Type=Application
+X-MB-SingleInstance=true
+Comment=Remove Test
+StartupNotify=false

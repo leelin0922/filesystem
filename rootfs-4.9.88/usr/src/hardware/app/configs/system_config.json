@@ -1,0 +1,215 @@
+{
+    "navigation" : {
+        "welcome" : {
+            "link" : "#welcome-to-arm-settings", 
+            "content" : "Welcome to ARM-Settings"
+        },
+        "system_info" : {
+            "link" : "#base-infomation", 
+            "content" : "Base Infomation"
+        },
+        "network" : {
+            "link" : "#network",
+            "content" : "Network"
+        },
+        "data_and_time" : {
+            "link" : "#dateAndTime",
+            "content" : "Date & Time"
+        },
+        "hardware_test" : {
+            "link" : "#hardware-test",
+            "content" : "Hardware Test"
+        }
+    },
+    "system_info" : {
+        "CPU" : {
+            "cmd" : {
+                "armv7l" : "grep Hardware /proc/cpuinfo | awk -F ':' '{print $2}' | sed 's/ Sabre-SD Board//g'",
+                "x86_64" : "cat /proc/cpuinfo | grep 'model name' | tail -n 1 | awk -F ':' '{print $2}' | xargs"
+            },
+            "compare" : {
+                "armv7l" : "",
+                "x86_64" : ""
+            }
+        },
+        "Memery" : {
+            "cmd" : {
+                "armv7l" : "grep MemTotal /proc/meminfo | awk -F ':' '{print $2}' | awk -F ' ' '{print $1}'",
+                "x86_64" : "grep MemTotal /proc/meminfo | awk -F ':' '{print $2}' | awk -F ' ' '{print $1}'"
+            },
+            "compare" : {
+                "armv7l" : "",
+                "x86_64" : ""
+            }
+        },
+        "eMMCtotal" : {
+            "cmd" : {
+                "armv7l" : "lsblk | grep 'mmcblk3 ' | awk '{print $4}'",
+                "x86_64" : "fdisk -l | grep /dev/sda | awk -F ':' '{print $2}' | awk -F ',' '{print $1}' | head -n 1 | xargs"
+            },
+            "compare" : {
+                "armv7l" : "",
+                "x86_64" : ""
+            }
+        },
+        "eMMCavailable" : {
+            "cmd" : {
+                "armv7l" : "df -h | grep -E '/dev/root|/dev/mapper' | awk -F ' ' '{print $4}'",
+                "x86_64" : ""
+            },
+            "compare" : {
+                "armv7l" : "",
+                "x86_64" : ""
+            }
+        },
+        "OStype" : {
+            "cmd" : {
+                "armv7l" : "uname",
+                "x86_64" : "uname"
+            },
+            "compare" : {
+                "armv7l" : "",
+                "x86_64" : ""
+            }
+        },
+        "Version" : {
+            "cmd" : {
+                "armv7l" : "uname -a | awk '{print $3}'",
+                "x86_64" : "uname -a | awk '{print $3}'"
+            },
+            "compare" : {
+                "armv7l" : "",
+                "x86_64" : "4.8.0-54-generic"
+            }
+        },
+        "MAC1" : {
+            "cmd" : {
+                "armv7l" : "/sbin/ifconfig | grep eth0 | awk -F ' ' '{print $5}'",
+                "x86_64" : "uname -a | awk -F ' ' '{print $3}'"
+            }
+        },
+        "Thermal" : {
+            "cmd" : {
+                "armv7l" : "cat /sys/class/thermal/thermal_zone0/temp",
+                "x86_64" : "cat /sys/class/thermal/thermal_zone0/temp"
+            }
+        }
+    },
+    "network" : {
+        "devicename" : {
+                "armv7l" : "connmanctl services | awk '{print $3}'",
+                "x86_64" : ""
+        },
+        "inettype" : {
+                "armv7l" : "connmanctl services networkdevice | grep Method=manual",
+                "x86_64" : ""
+        },
+        "ipaddr" : {
+                "armv7l" : "/sbin/ifconfig 'eth0' | grep 'inet ' | awk '{print $2}' | awk -F ':' '{print $2}'",
+                "x86_64" : ""
+        },
+        "netmask" : {
+                "armv7l" : "/sbin/ifconfig 'eth0' | grep 'inet ' | awk '{print $4}' | awk -F ':' '{print $2}'",
+                "x86_64" : ""
+        },
+        "gateway" : {
+                "armv7l" : "/sbin/route -n | grep UG | head -n  1 | awk '{print $2}'",
+                "x86_64" : "/sbin/route -n | grep UG | head -n  1 | awk -F ' ' '{print $2}'"
+        },
+        "DNS" : {
+                "armv7l" : "/sbin/ifconfig 'eth0' | grep 'inet ' | awk -F ' ' '{print $3}' | awk -F ':' '{print $2}'",
+                "x86_64" : ""
+        }
+    },
+    "date_and_time" : {
+        "Date" : {
+            "armv7l" : "date '+%Y-%m-%d'",
+            "x86_64" : "date '+%Y-%m-%d'"
+        },
+        "Time" : {
+            "armv7l" : "date '+%H:%M'",
+            "x86_64" : "date '+%H:%M'"
+        }
+    },
+    "hardware_test" : {
+        "ethernet0" : {
+            "index" : 1,
+            "shell" : "ping -c 1 -W 1 192.168.20.1 2>&1 | grep ', 0% packet loss'",
+            "descriptor" : "eth0",
+            "value" : "192.168.20.1",
+            "status" : "error"
+        },
+        "I2C3" : {
+            "index" : 2,
+            "shell" : "/usr/sbin/i2cget -f -y 2 0x68 0x0 w | grep 0x",
+            "descriptor" : "MIO I2C3",
+            "status" : "error"
+        },
+        "Keyboard" : {
+            "index" : 3,
+            "shell" : "grep 'kbd event' /proc/bus/input/devices",
+            "descriptor" : "usb",
+            "status" : "error"
+        },
+        "Mouse" : {
+            "index" : 4,
+            "shell" : "grep -i mouse /proc/bus/input/devices",
+            "descriptor" : "usb",
+            "status" : "error"
+        },
+        "USBDISK" : {
+            "index" : 5,
+            "shell" : "mount | grep sda | awk '{print $3}'",
+            "descriptor" : "USB disk",
+            "status" : "error"
+        },
+        "EEPROM" : {
+            "index" : 6,
+            "shell" : "dmesg | grep '24c02 EEPROM, writable, 1 bytes/write'",
+            "descriptor" : "GPIO I2C I2C4",
+            "status" : "error"
+        },
+        "SDCard" : {
+            "index" : 7,
+            "shell" : "mount | grep mmcblk2 | awk '{print $3}'",
+            "descriptor" : "micro sd card",
+            "status" : "error"
+        },
+        "ttymxc2" : {
+            "index" : 8,
+            "shell" : "mxc_uart_stress_test.out /dev/ttymxc2 115200 D D 1 10 O | grep ended",
+            "descriptor" : "uart3",
+            "status" : "error"
+        },
+        "PMU" : {
+            "index" : 9,
+            "shell" : "dmesg | grep ' pfuze100 found'",
+            "descriptor" : "CON2 I2C2",
+            "status" : "error"
+        },
+        "Touch" : {
+            "index" : 10,
+            "shell" : "cat /proc/bus/input/devices | grep eGalaxTouch",
+            "descriptor" : "USB eGalaxTouch",
+            "status" : "error"
+        },
+        "Screen" : {
+            "index" : 11,
+            "shell" : "/usr/sbin/fbset -v | grep '/dev/fb0' | grep current",
+            "descriptor" : "Framebuffer",
+            "status" : "error"
+        },
+        "Buzzer" : {
+            "index" : 12,
+            "shell" : "mxc_pwm_buzzer.out 2730 | grep Success",
+            "descriptor" : "/dev/pwm-buzzer",
+            "status" : "error"
+        },
+        "OTG" : {
+            "index" : 13,
+            "shell" : "lsusb | grep 'root' | awk '{print $2}'",
+            "descriptor" : "OTG",
+            "status" : "error"
+        }
+    }
+}

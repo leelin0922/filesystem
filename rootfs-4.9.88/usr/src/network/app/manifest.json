@@ -1,0 +1,22 @@
+{
+  // Extension ID: pjmlffccadkfjahmpodohbdpacihaokh
+  "key": "MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC4U6w3z5kdNPnJj3wG+2NsCn8g2QXlkquqTCXpMRm830ekTUQsb7645UOYGUbVFfWrkD0MK+jiLWXRdFF1bH+9YPg+kZ78Q5+ExyZILyG6kAwm9nOndGWM2xUrWnNxE+NxPdewjNSwT91vV1hpD/rzJqFW3vm94ZCj9pLRW3sybaih0QIiF76PsdAYf7sDedp161RDByHiRJRdl2JMy86w8QAXRHsCayHhHGaPCtU+wiX24nRsOO7vsRWANIvCNDSkq/zbN7XGxSzi3Z1QNXCNHq0jJKO/rRQDfm8+66SjCRHJfJdDPb+To/jWXcPjnJhsuiFbebfnM2nvlWDpRKU3AgMBAAECggEAVe3r4zjMUGlZ6TUSxM580ukxysZhkVyG2qUVJ1jUftA4Pcgnd+/AIcH/ePCPrNbH6GsdiocN0iMHzFVFhFBIXKjQEZshWsjLnMKafhw6xRZSE/fggrgofznC7KsGFjkHVstVueBtZqRUvoshlBj3DFN981mPY428ODPCzgavsBnTDpzXnpb1YzNu1GTk+kARNydn57uOrHEpAIH3HbwKdcKsNgdIjwPs0npPT/uvHNc/gd/UKLYPFHcohS/wcRzGa/erIe8DA09GX4aZbfVblZakrigMmOvip8tLegraFrmCe0AXXS5yPBKBkmxTbLIrK01ID2J54u05dqfv3drJAQKBgQD0MNWLEdOKwpur56F/Av4unrXKxxPbqXJx9xhGTd7fy/ITrdDSF8cYK0NGmPpFQQdJY0z48QlhwVmjSoq8qJuQDPEo8QLPy73dt8mhe736pKay0ncAwL5tED02BVOmktsXGQIvgyd3m2S2k7FmVJFLGINvZxwMXCIrmAUNZUPikQKBgQDBPbPjbXRdrcZr/CYVIThXQE/jlYcpu5qm+mn/PbWP5K9FfkUVZAAcBhgfAOYjU2mDjAPEvnfy+78JqxoK4oSrwk/ZqpL4uv4ckXaU5U1Zy+TSHzwxgBns+BktYeULyrP399jVTjdEMdshgcTq7F/mL5wWmXKS5ZHX8yLfkQ1fRwKBgQCwRAvxPiXwVPfgB+y4bSWj62aYgEmiV1dIUrAQF6fY7jPI5sAE16sclCYU8No/YWhsHiTy0bMPAG2/BFDPS/o26lCuWALKkmx0fnUqftMs+Otny6qhPYB346/7ra6rX/iMXL4KI+c6XE4/yK7WihbzGTfPE6PYfC0iQLLs73soMQKBgHk1DadiWTIFNMc40l5AhwlbQoDaonwPu1JvEZtShpap9zIcoJJpNhRd0jVoJ/ISeMVVRmvamHwlYc9brisTp+ngKJu7/RHcoFUk/H8qUNk5Jd6STvwxgJF9kLVBiRxbWYT4xd4NgGba6rranbxI5WIJjNs0BoSTUGZmkAIxBnUzAoGBAO80hduwdI6lfutTYvcd9oLcM/tFhIr+pT25PNuNm7GTeQxKFrgezVpYl9f0Jl9+n6p53O7MdmapKFQubVheHO17S0xpJgaTIYQD0zRa9vKUqYOWhbXH9FCBz9Xxu7D5UnqIHS7xRKOnRJf6b/Y+plTImpUM+jv5A17OI/OPfzw3",
+  "name": "Network setup",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "description": "Send a message to a native application.",
+  "app": {
+    "launch": {
+      "local_path": "network.html"
+    }
+  },
+  "icons": {
+    "16": "16.png",
+    "32": "32.png",
+    "64": "64.png",
+    "128": "128.png"
+  },
+  "permissions": [
+    "nativeMessaging"
+  ]
+}

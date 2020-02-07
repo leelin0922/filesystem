@@ -1,0 +1,145 @@
+# /etc/profile: system-wide .profile file for the Bourne shell (sh(1))
+# and Bourne compatible shells (bash(1), ksh(1), ash(1), ...).
+
+PATH="/usr/local/bin:/usr/bin:/bin"
+EDITOR="vi"			# needed for packages like cron, git-commit
+test -z "$TERM" && TERM="vt100"	# Basic terminal capab. For screen etc.
+
+export VIV_PROFILE=1
+export VP_OUTPUT=/tmp/sample.vpd
+export VP_FRAME_NUM=0
+export VP_FRAME_START=0
+export VP_FRAME_END=0
+export VP_SYNC_MODE=0
+export DRI_IGNORE_DISPLAY_SIZE=1
+export X_IGNORE_DISPLAY_SIZE=1
+
+export Graphics="xcb"
+export QT_QPA_PLATFORM=$Graphics
+export DISPLAY=:0.0
+export GSTL=gst-launch-1.0
+export PLAYBIN=playbin
+export GPLAY=gplay-1.0
+export GSTINSPECT=gst-inspect-1.0
+export LD_LIBRARY_PATH=/usr/lib/
+
+if [ "$(whoami)" = "root" ]; then
+chmod -f 666 /dev/autofs
+chmod -f 666 /dev/console
+chmod -f 666 /dev/com_mode
+chmod -f 666 /dev/cpu_dma_latency
+chmod -f 777 /dev/dri/by-path
+chmod -f 666 /dev/dri/card0
+chmod -f 666 /dev/dri/card1
+chmod -f 666 /dev/dri/renderD128
+chmod -f 666 /dev/fb0
+chmod -f 666 /dev/fb1
+chmod -f 666 /dev/full
+chmod -f 666 /dev/fuse
+chmod -f 666 /dev/g*
+chmod -f 666 /run/systemd/initctl/fifo
+chmod -f 666 /dev/vi*
+chmod -f 666 /dev/mxc*
+chmod -f 666 /dev/i2c*
+chmod -f 666 /dev/pwm*
+chmod -f 666 /dev/ttymxc*
+chmod -f 666 /dev/hidraw*
+chmod -f 666 /sys/class/backlight/pwm-backlight.0/brightness
+chmod -f 666 /sys/class/backlight/pwm-backlight.1/brightness
+chmod -f 666 /etc/pointercal.xinput*
+chmod -f 666 /sys/kernel/comportmode/*
+chown -R user:user /home/user
+fi
+
+if [ -f "/home/user/testprocess" ]; then
+cp /usr/share/backupapp/PreferencesTest /home/user/.config/chromium/Default/Preferences
+else
+cp /usr/share/backupapp/Preferences /home/user/.config/chromium/Default/Preferences
+fi
+
+if [ -f "/etc/onoffcounter" ]; then
+  chmod -f 666 /etc/onoffcounter
+else
+  touch /etc/onoffcounter
+  echo -1 > /etc/onoffcounter
+  chmod -f 666 /etc/onoffcounter
+fi
+
+if [ -f "/etc/comportmode" ]; then
+  chmod -f 666 /etc/comportmode
+  cp -f /etc/comportmode /sys/kernel/comportmode/curr_mode
+else
+  touch /etc/comportmode
+  echo 66 > /etc/comportmode
+  chmod -f 666 /etc/comportmode
+fi
+
+if [ -f "/etc/eetitouch" ]; then
+  chmod -f 666 /etc/eetitouch
+else
+  touch /etc/eetitouch
+  echo "Maxreportpoint:10" > /etc/eetitouch
+  echo "Sensitivitylevel:0" >> /etc/eetitouch
+  chmod -f 666 /etc/eetitouch
+fi
+
+if [ -f "/etc/pointercal.xinput.pri" ]; then
+  if [ -f "/etc/pointercal.xinput" ]; then
+    chmod -f 666 /etc/pointercal.xinput
+  else
+    cat /etc/pointercal.xinput.pri > /etc/pointercal.xinput
+    chmod -f 666 /etc/pointercal.xinput
+  fi
+fi
+
+if [ -f "/etc/brightness" ]; then
+  cat /etc/brightness > /sys/class/backlight/pwm-backlight.0/brightness
+  cat /etc/brightness > /sys/class/backlight/pwm-backlight.1/brightness 
+else
+  touch /etc/brightness
+  echo 200 > /etc/brightness
+fi
+chmod -f 666 /etc/brightness
+
+if [ -f "/etc/proxyserver" ]; then
+  chmod -f 666 /etc/proxyserver
+else
+  touch /etc/proxyserver
+  echo "" > /etc/proxyserver
+  chmod -f 666 /etc/proxyserver
+fi
+PROXY_URL=$(cat "/etc/proxyserver")
+export http_proxy=$PROXY_URL
+export https_proxy=$PROXY_URL
+export ftp_proxy=$PROXY_URL
+
+if [ ! -e /etc/localtime -a ! -e /etc/TZ ]; then
+	TZ="UTC"		# Time Zone. Look at http://theory.uwinnipeg.ca/gnu/glibc/libc_303.html
+				# for an explanation of how to set this to your local timezone.
+	export TZ
+fi
+
+#if [ "$HOME" = "/home/root" ]; then
+   PATH=$PATH:/usr/local/sbin:/usr/sbin:/sbin
+#fi
+if [ "$PS1" ]; then
+# works for bash and ash (no other shells known to be in use here)
+   PS1='\u@\h:\w\$ '
+fi
+
+if [ -d /etc/profile.d ]; then
+  for i in /etc/profile.d/*.sh ; do
+    if [ -f $i -a -r $i ]; then
+      . $i
+    fi
+  done
+  unset i
+fi
+
+export PATH PS1 OPIEDIR QPEDIR QTDIR EDITOR TERM
+
+umask 022
+modprobe cryptodev
+#if [ -f "/etc/pointercal.xinput" ]; then
+#  source /etc/pointercal.xinput
+#fi

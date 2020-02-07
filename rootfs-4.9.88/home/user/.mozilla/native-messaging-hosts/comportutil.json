@@ -1,0 +1,9 @@
+{
+  "name": "comportutil",
+  "description": "Example host for native messaging",
+  "path": "/home/user/native-messaging-python/comportutil.py",
+  "type": "stdio",
+  "allowed_extensions": [
+    "comportutil@example.org"
+  ]
+}

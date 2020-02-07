@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.slidecontainer {
+    width: 50%;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 50%;
+    height: 15px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+</style>
+    <script src='./eetitool.js'></script>
+  </head>
+  <body>
+    <button id='connect-button'>Connect</button>
+<h1>
+    <label id="showtitle"   style="width:200px;height:35px;font-size:30px;">EETI touch tool</label>
+</h1>
+    <label id="showmaxreportpoint"   style="width:200px;height:32px;font-size:28px;">Set max. report point:</label>
+<form>
+     <select id="maxreportpointvalue"  style="width:100px;height:30px;font-size:25px;">
+	<option value="1">1</option>
+	<option value="2">2</option>
+	<option value="3">3</option>
+	<option value="4">4</option>
+	<option value="5">5</option>
+	<option value="6">6</option>
+	<option value="7">7</option>
+	<option value="8">8</option>
+	<option value="9">9</option>
+	<option value="10">10</option>
+      </select>
+</form>
+    <br>
+    <label id="showsensitivitylevel"   style="width:200px;height:32px;font-size:28px;">Set sensitivity level:</label>
+<form>
+     <select id="sensitivitylevelvalue"  style="width:100px;height:30px;font-size:25px;">
+	<option value="-5">-5</option>
+	<option value="-4">-4</option>
+	<option value="-3">-3</option>
+	<option value="-2">-2</option>
+	<option value="-1">-1</option>
+	<option value="0">0</option>
+	<option value="1">1</option>
+	<option value="2">2</option>
+	<option value="3">3</option>
+	<option value="4">4</option>
+	<option value="5">5</option>
+      </select>
+</form>
+    <br><br><button id='settouchparameter'  style="width:150px;height:32px;font-size:28px;">Set</button>
+   <div id='response'></div>
+  </body>
+</html>

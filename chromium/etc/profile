@@ -1,0 +1,92 @@
+# /etc/profile: system-wide .profile file for the Bourne shell (sh(1))
+# and Bourne compatible shells (bash(1), ksh(1), ash(1), ...).
+
+PATH="/usr/local/bin:/usr/bin:/bin"
+EDITOR="vi"			# needed for packages like cron, git-commit
+test -z "$TERM" && TERM="vt100"	# Basic terminal capab. For screen etc.
+
+export Graphics="xcb"
+export QT_QPA_PLATFORM=$Graphics
+export DISPLAY=:0.0
+export GSTL=gst-launch-1.0
+export PLAYBIN=playbin
+export GPLAY=gplay-1.0
+export GSTINSPECT=gst-inspect-1.0
+
+export CHROME_DEVEL_SANDBOX=/usr/sbin/chrome-devel-sandbox
+export LD_LIBRARY_PATH=/usr/lib/chromium
+
+CHROME_EXTRA_ARGS=" --use-gl=egl --gpu-no-context-lost "
+CHROME_EXTRA_ARGS="${CHROME_EXTRA_ARGS} --user-data-dir=/home/root/.chromium/"
+
+chmod 666 /dev/ttymxc*
+chmod 666 /dev/fb0
+chmod 666 /dev/i2c*
+chmod 666 /dev/pwm-buzzer
+chmod 666 /sys/class/backlight/pwm-backlight.0/brightness
+chmod 666 /sys/class/backlight/pwm-backlight.1/brightness
+
+export GOOGLE_API_KEY="no"
+export GOOGLE_DEFAULT_CLIENT_ID="no"
+export GOOGLE_DEFAULT_CLIENT_SECRET="no"
+
+if [ -f "/etc/brightness" ]; then
+	cat /etc/brightness > /sys/class/backlight/pwm-backlight.0/brightness
+	cat /etc/brightness > /sys/class/backlight/pwm-backlight.1/brightness 
+else
+	echo 200 > /etc/brightness
+fi
+chmod 666 /etc/brightness
+
+if ! (systemctl -q is-active dbus.service)
+    then
+    systemctl restart dbus.service
+fi
+if ! (systemctl -q is-active connman.service)
+    then
+    systemctl restart connman.service
+fi
+if ! (systemctl -q is-active avahi-daemon.service)
+    then
+    systemctl restart avahi-daemon.service
+fi
+if ! (systemctl -q is-active ofono.service)
+    then
+    systemctl restart ofono.service
+fi
+if ! (systemctl -q is-active ofono.service)
+    then
+    systemctl restart ofono.service
+fi
+if ! (systemctl -q is-active systemd-logind.service)
+    then
+    systemctl restart systemd-logind.service
+fi
+
+if [ ! -e /etc/localtime -a ! -e /etc/TZ ]; then
+	TZ="UTC"		# Time Zone. Look at http://theory.uwinnipeg.ca/gnu/glibc/libc_303.html
+				# for an explanation of how to set this to your local timezone.
+	export TZ
+fi
+
+if [ "$HOME" = "/home/root" ]; then
+   PATH=$PATH:/usr/local/sbin:/usr/sbin:/sbin
+fi
+if [ "$PS1" ]; then
+# works for bash and ash (no other shells known to be in use here)
+   PS1='\u@\h:\w\$ '
+fi
+
+if [ -d /etc/profile.d ]; then
+  for i in /etc/profile.d/*.sh ; do
+    if [ -f $i -a -r $i ]; then
+      . $i
+    fi
+  done
+  unset i
+fi
+
+export PATH PS1 OPIEDIR QPEDIR QTDIR EDITOR TERM
+
+umask 022
+

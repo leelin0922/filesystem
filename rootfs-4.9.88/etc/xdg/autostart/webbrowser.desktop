@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Browser
+Comment=Web Browser
+Exec=/usr/bin/checkbrowser.out
+Terminal=false
+MultipleArgs=false
+Type=Application
+Icon=mozilla-firefox.png
+Categories=Application;Internet;Network;
+SingleInstance=true
+

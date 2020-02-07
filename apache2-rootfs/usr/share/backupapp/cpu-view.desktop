@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Name=cpu view
+Comment=apache2
+Exec=/usr/bin/view-burn-in.sh
+Icon=applications-games
+Terminal=false
+Type=Application
