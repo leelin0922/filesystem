@@ -23,7 +23,7 @@ git checkout -b SBC-7119S_filesystem-4.9.88
 git push SBC-7119S_filesystem-4.9.88 SBC-7119S_filesystem-4.9.88
 
 
-Examples:copy git commit git clone https://github.com/leelin0922/u-boot.git -b SBC-7112S_Linux_Uboot-v2017.03
+Examples:copy git commit git clone https://github.com/leelin0922/filesystem.git -b SBC-7119S_filesystem-4.9.88
 
 git status
 
