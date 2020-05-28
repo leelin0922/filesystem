@@ -193,14 +193,6 @@ def read_thread_func(queue):
         teststr='"' + "ethernet0" + netmask + '"'
         send_message(teststr)
         continue
-      findret = textstr.find('I2C0')
-      if findret > -1 :
-        command= textstr.strip('I2C0')
-        outputfd = os.popen(command)
-        output = str(outputfd.read()).rstrip()
-        teststr='"' + "I2C0" + output + '"'
-        send_message(teststr)
-        continue
       findret = textstr.find('I2C1')
       if findret > -1 :
         command= textstr.strip('I2C1')
@@ -256,36 +248,12 @@ def read_thread_func(queue):
         teststr='"' + "SDCard" + output + '"'
         send_message(teststr)
         continue
-      findret = textstr.find('COM2')
+      findret = textstr.find('ttymxc2')
       if findret > -1 :
-        command= textstr.strip('COM2')
+        command= textstr.strip('ttymxc2')
         outputfd = os.popen(command)
         output = str(outputfd.read()).rstrip()
-        teststr='"' + "COM2" + output + '"'
-        send_message(teststr)
-        continue
-      findret = textstr.find('COM1')
-      if findret > -1 :
-        command= textstr.strip('COM1')
-        outputfd = os.popen(command)
-        output = str(outputfd.read()).rstrip()
-        teststr='"' + "COM1" + output + '"'
-        send_message(teststr)
-        continue
-      findret = textstr.find('COM3')
-      if findret > -1 :
-        command= textstr.strip('COM3')
-        outputfd = os.popen(command)
-        output = str(outputfd.read()).rstrip()
-        teststr='"' + "COM3" + output + '"'
-        send_message(teststr)
-        continue
-      findret = textstr.find('GPIOS')
-      if findret > -1 :
-        command= textstr.strip('GPIOS')
-        outputfd = os.popen(command)
-        output = str(outputfd.read()).rstrip()
-        teststr='"' + "GPIOS" + output + '"'
+        teststr='"' + "ttymxc2" + output + '"'
         send_message(teststr)
         continue
       findret = textstr.find('PMU')
@@ -335,7 +303,6 @@ def read_thread_func(queue):
         teststr='"' + "OTG" + output + '"'
         send_message(teststr)
         continue
-      send_message(text)
 
 def Main():
     read_thread_func(None)

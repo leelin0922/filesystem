@@ -21,6 +21,9 @@ function updateUiState() {
     document.getElementById('connect-button').style.display = 'none';
     document.getElementById('temperature').style.display = 'block';
     document.getElementById('cpu-usage').style.display = 'block';
+    document.getElementById('envtemp').style.display = 'block';
+    document.getElementById('envhumi').style.display = 'block';
+    document.getElementById('envlux').style.display = 'block';
     if(document.getElementById('status').value==1)
     {
       document.getElementById('StartRun').style.display = 'none';
@@ -35,6 +38,9 @@ function updateUiState() {
     document.getElementById('connect-button').style.display = 'block';
     document.getElementById('temperature').style.display = 'none';
     document.getElementById('cpu-usage').style.display = 'none';
+    document.getElementById('envtemp').style.display = 'none';
+    document.getElementById('envhumi').style.display = 'none';
+    document.getElementById('envlux').style.display = 'none';
     document.getElementById('StartRun').style.display = 'none';
     document.getElementById('StopRun').style.display = 'none';
   }
@@ -82,7 +88,7 @@ function onNativeMessage(message) {
   stroffset=inputstr.search("temperature");
   if(stroffset>=0)
   {
-     inputstr=message.replace('temperature','');
+    inputstr=message.replace('temperature','');
     document.getElementById('temperature').value=inputstr + " C";
     updateUiState();
     return;
@@ -90,12 +96,37 @@ function onNativeMessage(message) {
   stroffset=inputstr.search("cpu_usage");
   if(stroffset>=0)
   {
-     inputstr=message.replace('cpu_usage','');
+    inputstr=message.replace('cpu_usage','');
     document.getElementById('cpu-usage').value=inputstr + " %";
     updateUiState();
     port.postMessage("continue");
     return;
   }
+  stroffset=inputstr.search("envtemp");
+  if(stroffset>=0)
+  {
+    inputstr=message.replace('envtemp','');
+    document.getElementById('envtemp').value=inputstr + " C";
+    updateUiState();
+    return;
+  }
+  stroffset=inputstr.search("envhumi");
+  if(stroffset>=0)
+  {
+    inputstr=message.replace('envhumi','');
+    document.getElementById('envhumi').value=inputstr + " %";
+    updateUiState();
+    return;
+  }
+  stroffset=inputstr.search("envlux");
+  if(stroffset>=0)
+  {
+    inputstr=message.replace('envlux','');
+    document.getElementById('envlux').value=inputstr + " ";
+    updateUiState();
+    return;
+  }
+  appendMessage("Received message: <b>" + JSON.stringify(message) + "</b>");
 }
 
 function onDisconnected() {
