@@ -19,10 +19,6 @@
         "hardware_test" : {
             "link" : "#hardware-test",
             "content" : "Hardware Test"
-        },
-        "extension_test" : {
-            "link" : "#extension-test",
-            "content" : "Extension Test"
         }
     },
     "system_info" : {
@@ -152,7 +148,7 @@
         },
         "Keyboard" : {
             "index" : 2,
-            "shell" : "grep 'kbd event' /proc/bus/input/devices",
+            "shell" : "grep -v event0 /proc/bus/input/devices | grep 'kbd event'",
             "descriptor" : "usb",
             "status" : "error"
         },
@@ -180,38 +176,32 @@
             "descriptor" : "uart1",
             "status" : "error"
         },
-        "COM2" : {
-            "index" : 7,
-            "shell" : "mxc_uart_stress_test.out /dev/ttymxc2 115200 D D 1 10 O | grep ended",
-            "descriptor" : "uart2",
-            "status" : "error"
-        },
         "I2C0" : {
-            "index" : 8,
-            "shell" : "i2cget -f -y 0 0x51 0x0 w | grep 0x",
-            "descriptor" : "EEPROM(0X51) offset 0x0",
+            "index" : 7,
+            "shell" : "i2cget -f -y 0 0x50 0x0 w | grep 0x",
+            "descriptor" : "EEPROM(0X50) offset 0x0",
             "status" : "error"
         },
         "I2C1" : {
-            "index" : 9,
+            "index" : 8,
             "shell" : "i2cget -f -y 1 0x32 0x10 w | grep 0x",
             "descriptor" : "RTC(0x32) offset 0x10",
             "status" : "error"
         },
         "Screen" : {
-            "index" : 10,
+            "index" : 9,
             "shell" : "fbset -v | grep '/dev/fb0'",
             "descriptor" : "Framebuffer",
             "status" : "error"
         },
         "Touch" : {
-            "index" : 11,
-            "shell" : "cat /proc/bus/input/devices | grep eGalaxTouch",
-            "descriptor" : "USB eGalaxTouch",
+            "index" : 10,
+            "shell" : "cat /proc/bus/input/devices | grep 'ILITEK ILITEK-TP'  | awk '{print $2}'",
+            "descriptor" : "USB ILITEK ILITEK-TP",
             "status" : "error"
         },
         "OTG" : {
-            "index" : 12,
+            "index" : 11,
             "shell" : " lsusb | grep 'Bus 001' | grep -v root",
             "descriptor" : "USB OTG",
             "status" : "error"
@@ -224,8 +214,14 @@
             "descriptor" : "uart3",
             "status" : "error"
         },
-        "GPIOS" : {
+        "COM2" : {
             "index" : 2,
+            "shell" : "mxc_uart_stress_test.out /dev/ttymxc2 115200 D D 1 10 O | grep ended",
+            "descriptor" : "uart2",
+            "status" : "error"
+        },
+        "GPIOS" : {
+            "index" : 3,
             "shell" : "/usr/bin/gpiotest.sh | grep pass",
             "descriptor" : "GPIOS test",
             "status" : "error"

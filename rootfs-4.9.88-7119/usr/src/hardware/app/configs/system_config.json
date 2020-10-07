@@ -139,46 +139,84 @@
             "value" : "192.168.20.1",
             "status" : "error"
         },
-        "I2C1" : {
-            "index" : 2,
-            "shell" : "/usr/sbin/i2cget -f -y 1 0x68 0x0 w | grep 0x",
-            "descriptor" : "I2C1 0x68",
-            "status" : "error"
-        },
         "Keyboard" : {
-            "index" : 3,
+            "index" : 2,
             "shell" : "grep 'kbd event' /proc/bus/input/devices",
             "descriptor" : "usb",
             "status" : "error"
         },
         "Mouse" : {
-            "index" : 4,
+            "index" : 3,
             "shell" : "grep -i mouse /proc/bus/input/devices | grep N:",
             "descriptor" : "usb",
             "status" : "error"
         },
         "USBDISK" : {
-            "index" : 5,
-            "shell" : "mount | grep sda | awk '{print $3}'",
-            "descriptor" : "USB disk",
+            "index" : 4,
+            "shell" : "mount | grep '/run/media/sda'",
+            "descriptor" : "usb disk",
             "status" : "error"
         },
-        "Touch" : {
+        "SDCard" : {
+            "index" : 5,
+            "shell" : "mount | grep '/run/media/mmcblk0p1'  | awk '{print $3}'",
+            "descriptor" : "sd card",
+            "status" : "error"
+        },
+        "COM1" : {
             "index" : 6,
-            "shell" : "cat /proc/bus/input/devices | grep 'HYCON TECHNOLOGIES HYCON Touch Controller'",
-            "descriptor" : "USB HYCON Touch Controller",
+            "shell" : "mxc_uart_stress_test.out /dev/ttymxc1 115200 D D 1 10 O | grep ended",
+            "descriptor" : "uart1",
+            "status" : "error"
+        },
+        "I2C0" : {
+            "index" : 7,
+            "shell" : "/usr/sbin/i2cdump -f -y 0 0x50 w | grep '80:' | grep 'ffff'",
+            "descriptor" : "EEPROM(0X50) offset 0x80",
+            "status" : "error"
+        },
+        "I2C1" : {
+            "index" : 8,
+            "shell" : "/usr/sbin/i2cdump -f -y 1 0x32 w | grep '10:' | awk '{print $2}'",
+            "descriptor" : "RTC(0x32) offset 0x10",
             "status" : "error"
         },
         "Screen" : {
-            "index" : 7,
+            "index" : 9,
             "shell" : "/usr/sbin/fbset -v | grep '/dev/fb0' | grep current",
             "descriptor" : "Framebuffer",
             "status" : "error"
         },
+        "Touch" : {
+            "index" : 10,
+            "shell" : "cat /proc/bus/input/devices | grep 'ILITEK ILITEK-TP'  | awk '{print $2}'",
+            "descriptor" : "USB ILITEK ILITEK-TP",
+            "status" : "error"
+        },
        "OTG" : {
-            "index" : 8,
-            "shell" : "lsusb | grep 'root' | awk '{print $2}'",
+            "index" : 11,
+            "shell" : "lsusb | grep 'Bus 001' | grep -v root",
             "descriptor" : "OTG",
+            "status" : "error"
+        }
+    },
+    "extension_test" : {
+        "COM2" : {
+            "index" : 1,
+            "shell" : "mxc_uart_stress_test.out /dev/ttymxc2 115200 D D 1 10 O | grep ended",
+            "descriptor" : "uart2",
+            "status" : "error"
+        },
+        "COM3" : {
+            "index" : 2,
+            "shell" : "mxc_uart_stress_test.out /dev/ttymxc3 115200 D D 1 10 O | grep ended",
+            "descriptor" : "uart3",
+            "status" : "error"
+        },
+        "GPIOS" : {
+            "index" : 3,
+            "shell" : "/usr/bin/gpiotest.sh | grep pass",
+            "descriptor" : "GPIOS test",
             "status" : "error"
         }
     }

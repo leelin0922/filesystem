@@ -21,9 +21,9 @@ function updateUiState() {
     document.getElementById('connect-button').style.display = 'none';
     document.getElementById('temperature').style.display = 'block';
     document.getElementById('cpu-usage').style.display = 'block';
-    document.getElementById('envtemp').style.display = 'block';
-    document.getElementById('envhumi').style.display = 'block';
-    document.getElementById('envlux').style.display = 'block';
+    document.getElementById('envtemp').style.display = 'none';
+    document.getElementById('envhumi').style.display = 'none';
+    document.getElementById('envlux').style.display = 'none';
     if(document.getElementById('status').value==1)
     {
       document.getElementById('StartRun').style.display = 'none';

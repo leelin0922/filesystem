@@ -49,6 +49,7 @@ chmod -f 666 /sys/class/backlight/backlight/brightness
 #chmod -f 666 /sys/class/backlight/pwm-backlight.1/brightness
 chmod -f 666 /etc/pointercal.xinput*
 chmod -f 666 /sys/kernel/comportmode/*
+chmod -f 666 chmod 666 /sys/bus/i2c/devices/0-0050/eeprom
 chown -R user:user /home/user
 
 if [ ! -d "/sys/class/gpio/gpio1" ]; then

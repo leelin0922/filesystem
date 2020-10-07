@@ -80,25 +80,28 @@ function test_input($data) {
 
 <h2>PHP Form Validation Example</h2>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
-	Ipaddress: <input type="text" name="ipaddr" value=	"<?php 
-															$command = "ifconfig 'eth0' | grep 'inet ' | awk '{print $2}' | awk -F ':' '{print $2}'";
-															$ipaddr = exec ($command); 
-															echo $ipaddr;
-															?>">
+	Ipaddress: <input type="text" name="ipaddr" value=
+		"<?php 
+			$command = "ifconfig 'eth0' | grep 'inet ' | awk '{print $2}' | awk -F ':' '{print $2}'";
+			$ipaddr = exec ($command); 
+			echo $ipaddr;
+			?>">
 	<span class="error">* <?php echo $ipaddrErr;?></span>
 	<br><br>
-	Netmast: <input type="text" name="netmask" value=	"<?php
-															$command="ifconfig 'eth0' | grep 'inet ' | awk -F ' ' '{print $4}' | awk -F ':' '{print $2}'";
-															$netmask= exec ($command);
-															echo $netmask;
-															?>">
+	Netmast: <input type="text" name="netmask" value=
+		"<?php
+			$command="ifconfig 'eth0' | grep 'inet ' | awk -F ' ' '{print $4}' | awk -F ':' '{print $2}'";
+			$netmask= exec ($command);
+			echo $netmask;
+			?>">
 	<span class="error">* <?php echo $netmaskErr;?></span>
 	<br><br>
-	Gateway: <input type="text" name="gateway" value=	"<?php
-															$command="route -n | grep UG | head -n  1 | awk -F ' ' '{print $2}'";
-															$gateway= exec ($command);
-															echo $gateway;
-															?>">
+	Gateway: <input type="text" name="gateway" value=
+		"<?php
+			$command="route -n | grep UG | head -n  1 | awk -F ' ' '{print $2}'";
+			$gateway= exec ($command);
+			echo $gateway;
+			?>">
 	<span class="error">* <?php echo $gatewayErr;?></span>
 	<br><br>
 	Type:
@@ -112,7 +115,7 @@ function test_input($data) {
 			if (isset($type) && $type=="DHCP") 
 				echo "checked";
 		?> 
-    value="DHCP">DHCP
+	value="DHCP">DHCP
 	<input type="radio" name="type"
 		<?php 
 			$devicename=exec("connmanctl services | awk '{print $3}'");

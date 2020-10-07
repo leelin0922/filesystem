@@ -58,6 +58,7 @@ rm -rf rootfs/lib/systemd/system/basic.target.wants/alsa*
 
 rm -rf rootfs/etc/modules-load.d/nfsd.conf
 rm -rf rootfs/etc/systemd/system/multi-user.target.wants/nfs*
+rm -rf rootfs/usr/share/applications/xinput_calibrator.desktop
 
 cp -af rootfs/usr/share/X11/xorg.conf.d/10-evdev.conf rootfs/usr/share/X11/xorg.conf.d/45-evdev.conf
 #rm -rf rootfs/etc/modules-load.d/galcore.conf
@@ -80,7 +81,6 @@ echo "Comment="$currentdate >> rootfs-4.9.88-7119/usr/share/applications/about.d
 echo "cp -rf rootfs-4.9.88-7119/* rootfs/."
 #cp -rf rootfs-4.9.88/* rootfs/.
 cp -rf rootfs-4.9.88-7119/* rootfs/.
-rm -rf rootfs/usr/share/applications/xinput_calibrator.desktop
 
 #rm -rf rootfs/usr/share/apache2/htdocs
 #cp -arf htdocs rootfs/usr/share/apache2/.
@@ -107,6 +107,8 @@ find -iname "CNNIC*" -exec rm -rf {} \;
 find -iname "CHINA*" -exec rm -rf {} \;
 find -iname "*.bak" -exec rm -rf {} \;
 find -iname "*~" -exec rm -rf {} \;
+#mv rootfs/lib/modules/4.9.88-imx_4.9.88_2.0.0_ga+gcdd4afe rootfs/lib/modules/4.9.88-g96b347a-dirty
+mv rootfs/lib/modules/4.9.88-imx_4.9.88_2.0.0_ga+gcdd4afe rootfs/lib/modules/4.9.88-gd9f370a-dirty
 sync
 
 
@@ -118,6 +120,7 @@ cd ..
 echo "filesystem copy to rootfs.tar.bz2"
 
 outputdir="/mnt/hgfs/dshare/7119/outputimage/"
+echo $outputdir
 #cp rootfs.tar.bz2 /mnt/hgfs/dshare/7112/IMX6_L4.1.15_2.0.0_MFG-TOOL/Profiles/Linux/OS\ Firmware/files/rootfs.tar.bz2 
 #cp rootfs.tar.bz2 /mnt/hgfs/dshare/7112/i.mx6ul/mfgtools_for_6UL_20180806/mfgtools_for_6UL/Profiles/Linux/OS\ Firmware/files/linux/rootfs.tar.bz2
 cp rootfs.tar.bz2 "$outputdir"rootfs.tar.bz2

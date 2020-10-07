@@ -248,7 +248,7 @@ function onNativeMessage(message) {
   if(stroffset>=0)
   {
     inputstr=message.replace('ethernet0','');
-    if(inputstr  != 'undefined' )
+    if(inputstr  != '' )
     {
       stroffset=inputstr.search(", 0% packet loss");
       if(stroffset>=0)
@@ -259,12 +259,20 @@ function onNativeMessage(message) {
   stroffset=inputstr.search("I2C1");
   if(stroffset>=0)
   {
-    //inputstr=message.replace('I2C1','');
-    //if(inputstr  != 'undefined' )
+    inputstr=message.replace('I2C1','');
+    if(inputstr  != '' )
     {
-      //stroffset=inputstr.search("0x");
-      //if(stroffset>=0)
-        document.getElementById('I2C1').innerHTML =  "<img src='img/ok.png' width='30' height='30'/>";
+      document.getElementById('I2C1').innerHTML =  "<img src='img/ok.png' width='30' height='30'/>";
+    }
+    return;
+  }
+  stroffset=inputstr.search("I2C0");
+  if(stroffset>=0)
+  {
+    inputstr=message.replace('I2C1','');
+    if(inputstr  != '' )
+    {
+      document.getElementById('I2C0').innerHTML =  "<img src='img/ok.png' width='30' height='30'/>";
     }
     return;
   }
@@ -272,7 +280,7 @@ function onNativeMessage(message) {
   if(stroffset>=0)
   {
     inputstr=message.replace('Keyboard','');
-    if(inputstr  != 'undefined' )
+    if(inputstr  != '' )
     {
       stroffset=inputstr.search("kbd");
       if(stroffset>=0)
@@ -284,7 +292,7 @@ function onNativeMessage(message) {
   if(stroffset>=0)
   {
     inputstr=message.replace('Mouse','');
-    if(inputstr  != 'undefined' )
+    if(inputstr  != '' )
     {
       stroffset=inputstr.search("N:");
       if(stroffset>=0)
@@ -296,7 +304,7 @@ function onNativeMessage(message) {
   if(stroffset>=0)
   {
     inputstr=message.replace('USBDISK','');
-    if(inputstr  != 'undefined' )
+    if(inputstr  != '' )
     {
       stroffset=inputstr.search("sda");
       if(stroffset>=0)
@@ -308,7 +316,7 @@ function onNativeMessage(message) {
   if(stroffset>=0)
   {
     inputstr=message.replace('EEPROM','');
-    if(inputstr  != 'undefined' )
+    if(inputstr  != '' )
     {
       stroffset=inputstr.search("1 bytes/write");
       if(stroffset>=0)
@@ -320,31 +328,63 @@ function onNativeMessage(message) {
   if(stroffset>=0)
   {
     inputstr=message.replace('SDCard','');
-    if(inputstr  != 'undefined' )
+    if(inputstr  != '' )
     {
-      stroffset=inputstr.search("mmcblk2");
+      stroffset=inputstr.search("mmcblk0");
       if(stroffset>=0)
         document.getElementById('SDCard').innerHTML =  "<img src='img/ok.png' width='30' height='30'/>";
     }
     return;
   }
-  stroffset=inputstr.search("ttymxc2");
+  stroffset=inputstr.search("COM1");
   if(stroffset>=0)
   {
-    inputstr=message.replace('ttymxc2','');
-    if(inputstr  != 'undefined' )
+    inputstr=message.replace('COM1','');
+    if(inputstr  != '' )
     {
       stroffset=inputstr.search("ended");
       if(stroffset>=0)
-        document.getElementById('ttymxc2').innerHTML =  "<img src='img/ok.png' width='30' height='30'/>";
+        document.getElementById('COM1').innerHTML =  "<img src='img/ok.png' width='30' height='30'/>";
     }
+    return;
+  }
+  stroffset=inputstr.search("COM2");
+  if(stroffset>=0)
+  {
+    inputstr=message.replace('COM2','');
+    if(inputstr  != '' )
+    {
+      stroffset=inputstr.search("ended");
+      if(stroffset>=0)
+        document.getElementById('COM2').innerHTML =  "<img src='img/ok.png' width='30' height='30'/>";
+    }
+    return;
+  }
+  stroffset=inputstr.search("COM3");
+  if(stroffset>=0)
+  {
+    inputstr=message.replace('COM3','');
+    if(inputstr  != '' )
+    {
+      stroffset=inputstr.search("ended");
+      if(stroffset>=0)
+        document.getElementById('COM3').innerHTML =  "<img src='img/ok.png' width='30' height='30'/>";
+    }
+    return;
+  }
+  stroffset=inputstr.search("GPIOS");
+  if(stroffset>=0)
+  {
+    stroffset=inputstr.search("pass");
+    if(stroffset>=0)
+      document.getElementById('GPIOS').innerHTML =  "<img src='img/ok.png' width='30' height='30'/>";
     return;
   }
   stroffset=inputstr.search("PMU");
   if(stroffset>=0)
   {
     inputstr=message.replace('PMU','');
-    if(inputstr  != 'undefined' )
+    if(inputstr  != '' )
     {
       stroffset=inputstr.search("pfuze");
       if(stroffset>=0)
@@ -356,10 +396,10 @@ function onNativeMessage(message) {
   if(stroffset>=0)
   {
     inputstr=message.replace('Touch','');
-    if(inputstr  != 'undefined' )
+    if(inputstr  != '' )
     {
-      stroffset=inputstr.search("HYCON");
-      if(stroffset>=0)
+      //stroffset=inputstr.search("HYCON");
+      //if(stroffset>=0)
         document.getElementById('Touch').innerHTML =  "<img src='img/ok.png' width='30' height='30'/>";
     }
     return;
@@ -368,7 +408,7 @@ function onNativeMessage(message) {
   if(stroffset>=0)
   {
     inputstr=message.replace('Screen','');
-    if(inputstr  != 'undefined' )
+    if(inputstr  != '' )
     {
       stroffset=inputstr.search("/dev/fb");
       if(stroffset>=0)
@@ -380,7 +420,7 @@ function onNativeMessage(message) {
   if(stroffset>=0)
   {
     inputstr=message.replace('Buzzer','');
-    if(inputstr  != 'undefined' )
+    if(inputstr  != '' )
     {
       stroffset=inputstr.search("Success");
       if(stroffset>=0)
@@ -392,7 +432,7 @@ function onNativeMessage(message) {
   if(stroffset>=0)
   {
     inputstr=message.replace('OTG','');
-    if(inputstr  != 'undefined' )
+    if(inputstr  != '' )
     {
       stroffset=inputstr.search("001");
       if(stroffset>=0)
@@ -517,6 +557,31 @@ document.addEventListener('DOMContentLoaded', function () {
           cell3.id=i;
           cell3.innerHTML =  "<img src='img/error.png' width='30' height='30'/>";
           commandstr= i + " " + hardwaretable.hardware_test[i].shell + " " ;
+          //appendMessage("Send message: <b>" + JSON.stringify(commandstr) + "</b>");
+          port.postMessage(commandstr);
+        });
+        //var newtmp = document.getElementById("Buzzer");
+        //newtmp.innerHTML =  "<img src='img/ok.png' width='30' height='30'/>";
+      }
+      if( typeof hardwaretable.extension_test != 'undefined' )
+      {
+        $.each(hardwaretable.extension_test, function(i, field){
+          var table = document.getElementById("extensiontable");
+          var row = table.insertRow(-1);
+          var cell0 = row.insertCell(0);
+          var cell1 = row.insertCell(1);
+          var cell2 = row.insertCell(2);
+          var cell3 = row.insertCell(3);
+          cell0.innerHTML = hardwaretable.extension_test[i].index;
+          cell0.style.width = "20px";
+          cell1.innerHTML =  i;
+          cell1.style.width = "200px";
+          cell2.innerHTML =  hardwaretable.extension_test[i].descriptor;
+          cell2.style.width = "300px";
+          cell3.style.width = "60px";
+          cell3.id=i;
+          cell3.innerHTML =  "<img src='img/error.png' width='30' height='30'/>";
+          commandstr= i + " " + hardwaretable.extension_test[i].shell + " " ;
           //appendMessage("Send message: <b>" + JSON.stringify(commandstr) + "</b>");
           port.postMessage(commandstr);
         });

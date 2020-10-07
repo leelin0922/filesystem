@@ -41,9 +41,9 @@
           <?php include 'date_and_time.php'; ?>
 
           <?php include 'hardware_test.php'; ?>
-
+<!--
           <?php include 'extension_test.php'; ?>
-
+-->
           <footer>
             <div role="contentinfo">
                 <!-- Copyright etc -->

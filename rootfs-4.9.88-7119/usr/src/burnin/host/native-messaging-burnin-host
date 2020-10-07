@@ -41,26 +41,26 @@ def read_thread_func(queue):
     temperature = float (output.read())/1000
     test = '"' + "temperature" + str(round(temperature,1 ))+ '"'
     send_message( test )
-    output = os.popen('cat /sys/devices/soc0/soc/2100000.aips-bus/21a4000.i2c/i2c-1/1-0040/hwmon/hwmon0/humidity1_input')
-    envhumi= float (output.read())/1000
-    test = '"' + "envhumi" + str(round(envhumi,2 ))+ '"'
-    send_message( test )
-    output = os.popen('cat /sys/devices/soc0/soc/2100000.aips-bus/21a4000.i2c/i2c-1/1-0040/hwmon/hwmon0/temp1_input')
-    envtemp= float (output.read())/1000
-    test = '"' + "envtemp" + str(round(envtemp,2 ))+ '"'
-    send_message( test )
-    output = os.popen('cat /sys/bus/i2c/devices/1-0044/iio:device0/in_illuminance_input')
-    envluxstr= str(output.read())
-    test = '"' + "envlux" + "0.00"+ '"'
-    if envluxstr :
-      findret = envluxstr.find('cat')
-      if findret > -1 :
-        #envlux= float (output.read())
-        test = '"' + "envlux" + "0.00"+ '"'
-      else :
-        envlux= float (envluxstr)
-        test = '"' + "envlux" + str(round(envlux,2 ))+ '"'
-    send_message( test )
+    #output = os.popen('cat /sys/devices/soc0/soc/2100000.aips-bus/21a4000.i2c/i2c-1/1-0040/hwmon/hwmon0/humidity1_input')
+    #envhumi= float (output.read())/1000
+    #test = '"' + "envhumi" + str(round(envhumi,2 ))+ '"'
+    #send_message( test )
+    #output = os.popen('cat /sys/devices/soc0/soc/2100000.aips-bus/21a4000.i2c/i2c-1/1-0040/hwmon/hwmon0/temp1_input')
+    #envtemp= float (output.read())/1000
+    #test = '"' + "envtemp" + str(round(envtemp,2 ))+ '"'
+    #send_message( test )
+    #output = os.popen('cat /sys/bus/i2c/devices/1-0044/iio:device0/in_illuminance_input')
+    #envluxstr= str(output.read())
+    #test = '"' + "envlux" + "0.00"+ '"'
+    #if envluxstr :
+    #  findret = envluxstr.find('cat')
+    #  if findret > -1 :
+    #    #envlux= float (output.read())
+    #    test = '"' + "envlux" + "0.00"+ '"'
+    #  else :
+    #    envlux= float (envluxstr)
+    #    test = '"' + "envlux" + str(round(envlux,2 ))+ '"'
+    #send_message( test )
     stat_fd = open('/proc/stat')
     stat_buf = stat_fd.readlines()[0].split()
     preuser = float(stat_buf[1])
