@@ -77,10 +77,15 @@
     // Burning Mac
     if ($categories == "MAC") 
     {
+	if(file_exists("/sys/bus/i2c/devices/0-0050/eeprom")==false)
+	{
+            echo '{"status": "error", "MAC": "'.$mac_address.'"}';
+            return;
+	}
         $eeprom_size = 256;
         error_log("hertz error log test!", 0);
 	    $bytes = array();
-	    $bytes = array_pad($bytes, $eeprom_size, 0);
+	    $bytes = array_pad($bytes, $eeprom_size, 0xff);
 	    $mac_address = $data["MAC"];
 	    $macArray = explode(':', $mac_address);
 
@@ -95,7 +100,7 @@
 	    $bytes[8] = 0x00;
 	    $bytes[0xfe] = 0x03;
 	    $bytes[0xff] = 0x00;
-	    $myfile = fopen("/sys/bus/i2c/devices/3-0050/eeprom", "wb");
+	    $myfile = fopen("/sys/bus/i2c/devices/0-0050/eeprom", "wb");
 	    $i = 0;
 	    for (; $i < $eeprom_size; $i++) {
 		    fwrite($myfile, pack('C', $bytes[$i]));

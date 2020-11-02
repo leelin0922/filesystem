@@ -193,10 +193,22 @@
             "descriptor" : "USB ILITEK ILITEK-TP",
             "status" : "error"
         },
-       "OTG" : {
+        "Buzzer" : {
             "index" : 11,
-            "shell" : "lsusb | grep 'Bus 001' | grep -v root",
-            "descriptor" : "OTG",
+            "shell" : "mxc_pwm_buzzer.out 2730 | grep Success",
+            "descriptor" : "/dev/pwm-buzzer",
+            "status" : "error"
+        },
+        "GPIOS" : {
+            "index" : 12,
+            "shell" : "/usr/bin/gpiotest.sh | grep pass",
+            "descriptor" : "GPIOS test",
+            "status" : "error"
+        },
+        "OTG" : {
+            "index" : 13,
+            "shell" : " lsusb | grep 'Bus 001' | grep -v root",
+            "descriptor" : "USB OTG",
             "status" : "error"
         }
     },

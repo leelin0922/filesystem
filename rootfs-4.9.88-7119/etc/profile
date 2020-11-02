@@ -48,45 +48,20 @@ chmod -f 666 /sys/class/backlight/backlight/brightness
 #chmod -f 666 /sys/class/backlight/pwm-backlight.0/brightness
 #chmod -f 666 /sys/class/backlight/pwm-backlight.1/brightness
 chmod -f 666 /etc/pointercal.xinput*
-chmod -f 666 /sys/kernel/comportmode/*
-chmod -f 666 chmod 666 /sys/bus/i2c/devices/0-0050/eeprom
-chown -R user:user /home/user
+#chmod -f 666 /sys/kernel/comportmode/*
+chmod -f 666 /sys/bus/i2c/devices/0-0050/eeprom
+if [ ! "$(ls -ld /home/user/.config/chromium/Default/Preferences | awk '{print $3}')" == "user" ]; then
+	if [ "$(cat /proc/cmdline | grep mmcblk1p2)" == "" ]; then
+		cp /usr/share/backupapp/PreferencesUpdate /home/user/.config/chromium/Default/Preferences
+	else
+		cp /usr/share/backupapp/Preferences /home/user/.config/chromium/Default/Preferences
+	fi
+	chown -R user:user /home/user
+	chmod 4755 /usr/bin/sudo
+	chmod 4755 /bin/su
+fi
 
-if [ ! -d "/sys/class/gpio/gpio1" ]; then
-echo 1 > /sys/class/gpio/export
-fi
-if [ ! -d "/sys/class/gpio/gpio2" ]; then
-echo 2 > /sys/class/gpio/export
-fi
-if [ ! -d "/sys/class/gpio/gpio3" ]; then
-echo 3 > /sys/class/gpio/export
-fi
-if [ ! -d "/sys/class/gpio/gpio4" ]; then
-echo 4 > /sys/class/gpio/export
-fi
-if [ ! -d "/sys/class/gpio/gpio5" ]; then
-echo 5 > /sys/class/gpio/export
-fi
-if [ ! -d "/sys/class/gpio/gpio9" ]; then
-echo 9 > /sys/class/gpio/export
-fi
-if [ ! -d "/sys/class/gpio/gpio131" ]; then
-echo 131 > /sys/class/gpio/export
-fi
-if [ ! -d "/sys/class/gpio/gpio132" ]; then
-echo 132 > /sys/class/gpio/export
-fi
-sudo chmod 777 -R /sys/class/gpio/*
-
-#if [ "$(mount -l | grep nfs)" = "" ]; then
-if [ ! "$(ls -ld /home/user | awk '{print $3}')" = "user" ]; then
-chown -R user:user /home/user
-cp /usr/share/backupapp/Preferences /home/user/.config/chromium/Default/Preferences
-fi
-#else
-#cp /usr/share/backupapp/PreferencesUpdate /home/user/.config/chromium/Default/Preferences
-#fi
-#perl -pi -e 's/exit_type\":\"Crashed/exit_type\":\"none/' /home/user/.config/chromium/Default/Preferences
+perl -pi -e 's/exit_type\":\"Crashed/exit_type\":\"none/' /home/user/.config/chromium/Default/Preferences
 sync
 
 if [ -f "/etc/onoffcounter" ]; then
@@ -130,7 +105,7 @@ if [ -f "/etc/brightness" ]; then
 #  cat /etc/brightness > /sys/class/backlight/pwm-backlight.1/brightness 
 else
   touch /etc/brightness
-  echo 5 > /etc/brightness
+  echo 70 > /etc/brightness
   cat /etc/brightness > /sys/class/backlight/backlight/brightness
 fi
 chmod -f 666 /etc/brightness

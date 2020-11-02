@@ -77,18 +77,8 @@ echo "StartupNotify=false" >> rootfs-4.9.88-7119/usr/share/applications/about.de
 currentdate=$(date '+%Y%m%d')
 echo "Comment="$currentdate >> rootfs-4.9.88-7119/usr/share/applications/about.desktop
 
-#cp -rf apache2-rootfs/* rootfs/.
 echo "cp -rf rootfs-4.9.88-7119/* rootfs/."
-#cp -rf rootfs-4.9.88/* rootfs/.
 cp -rf rootfs-4.9.88-7119/* rootfs/.
-
-#rm -rf rootfs/usr/share/apache2/htdocs
-#cp -arf htdocs rootfs/usr/share/apache2/.
-#echo "chown -R root:root rootfs"
-#chown -R root:root rootfs
-#echo "chown -R user:user rootfs/home/user"
-#chown -R user:user rootfs/home/user
-#chmod -R 666 rootfs/etc/xdg
 
 #for apache2 
 if [ -f "rootfs/etc/apache2/httpd.conf" ]; then
@@ -99,16 +89,18 @@ cp -rf htdocs rootfs/usr/share/apache2/.
 cp apache2-rootfs/etc/apache2/httpd.conf rootfs/etc/apache2/httpd.conf
 fi
 
-chown -R root:root rootfs/var/spool/cron/
-chown root:root rootfs/usr/bin/crontab
-chown root:root rootfs/usr/libexec/dbus-daemon-launch-helper
+
 echo $(date '+%Y%m%d%H%M%S') > rootfs/etc/version
+chown -R root:root rootfs/*
+#chmod 755 rootfs/bin/su.shadow
+#chmod 755 rootfs/usr/bin/sudo
+
 find -iname "CNNIC*" -exec rm -rf {} \;
 find -iname "CHINA*" -exec rm -rf {} \;
 find -iname "*.bak" -exec rm -rf {} \;
 find -iname "*~" -exec rm -rf {} \;
 #mv rootfs/lib/modules/4.9.88-imx_4.9.88_2.0.0_ga+gcdd4afe rootfs/lib/modules/4.9.88-g96b347a-dirty
-mv rootfs/lib/modules/4.9.88-imx_4.9.88_2.0.0_ga+gcdd4afe rootfs/lib/modules/4.9.88-gd9f370a-dirty
+#mv rootfs/lib/modules/4.9.88-imx_4.9.88_2.0.0_ga+gcdd4afe rootfs/lib/modules/4.9.88-gd9f370a-dirty
 sync
 
 
