@@ -1,0 +1,178 @@
+#!/usr/bin/env python
+# Copyright (c) 2012 The Chromium Authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+# A simple native messaging host. Shows a Tkinter dialog with incoming messages
+# that also allows to send message back to the webapp.
+
+import struct
+import sys
+#import threading
+#import Queue
+import os
+import time
+import multiprocessing
+
+# Helper function that sends a message to the webapp.
+def send_message(message):
+   # Write message size.
+  sys.stdout.write(struct.pack('I', len(message)))
+  # Write the message itself.
+  sys.stdout.write(message)
+  sys.stdout.flush()
+
+# Thread that reads messages from the webapp.
+def read_thread_func(queue):
+  username=""
+  userpasswd=""
+  jiffy = os.sysconf(os.sysconf_names['SC_CLK_TCK'])
+  outputfd = os.popen("cat /etc/version")
+  outputstr = str(outputfd.read()).rstrip()
+  if outputstr :
+    sendtext='"' + "version:" +str(outputstr[0:8])+'"'
+    send_message(sendtext)
+  y=os.path.isfile("/tmp/hadauthored")
+  if y == True :
+    message = '"' + "HadAuthored" + '"'
+    send_message(message)
+  else :
+    message = '"' + "NoAuthored" + '"'
+    send_message(message)
+  y=os.path.isfile("/etc/modprobe.d/block_usb.conf")
+  if y == True :
+    message = '"' + "usbstorageisdisable" + '"'
+    send_message(message)
+  else :
+    message = '"' + "usbstorageisenable" + '"'
+    send_message(message)
+  command = "sudo /bin/systemctl status sshd.socket | grep active | grep listen"
+  cmdoutinfo = os.popen(command).read()
+  findret = cmdoutinfo.find('active')
+  if findret > -1 :
+    message = '"' + "sshdsocketisenable" + '"'
+    send_message(message)
+  else :
+    message = '"' + "sshdsocketisdisable" + '"'
+    send_message(message)
+  message_number = 0
+  while 1:
+    # Read the message length (first 4 bytes).
+    text_length_bytes = sys.stdin.read(4)
+
+    if len(text_length_bytes) == 0:
+      if queue:
+        queue.put(None)
+      sys.exit(0)
+
+    # Unpack message length as 4 byte integer.
+    text_length = struct.unpack('i', text_length_bytes)[0]
+
+    # Read the text (JSON object) of the message.
+    text = sys.stdin.read(text_length);
+    textstr=text.strip('"')
+    if queue:
+      queue.put(text)
+    else:
+      # In headless mode just send an echo message back.
+      #send_message(test)
+      findret = textstr.find('username:')
+      if findret > -1 :
+        username= textstr.replace('username:','')
+        continue
+      findret = textstr.find('userpasswd:')
+      if findret > -1 :
+        userpasswd= textstr.replace('userpasswd:','')
+        continue
+      findret = textstr.find('checkpassword')
+      if findret > -1 :
+        command = "sudo /usr/bin/checkpassword.out " + str(username) + " " + str(userpasswd) + " | grep 'password pass'"
+        outputfd = os.popen(command)
+        output = str(outputfd .read()).strip()
+        findret = output .find('pass!')
+        if findret > -1 :
+          command = "touch /tmp/hadauthored"
+          os.system(command)
+          message = '"' + "Checkpasswordpass" + '"'
+          send_message(message)
+        else:
+          message = '"' + "Checkpasswordfail" + '"'
+          send_message(message)
+        continue
+      findret = textstr.find('enableusbstorage')
+      if findret > -1 :
+        command = "sudo /bin/rm /etc/modprobe.d/block_usb.conf"
+        os.system(command)
+        message = '"' + "usbstorageisenable" + '"'
+        send_message(message)
+        continue
+      findret = textstr.find('disableusbstorage')
+      if findret > -1 :
+        command = "sudo /bin/touch /etc/modprobe.d/block_usb.conf"
+        os.system(command)
+        command = "sudo /bin/chmod 777 /etc/modprobe.d/block_usb.conf"
+        os.system(command)
+        command = "sudo /bin/echo 'install usb-storage /bin/true' > /etc/modprobe.d/block_usb.conf"
+        os.system(command)
+        message = '"' + "usbstorageisdisable" + '"'
+        send_message(message)
+        continue
+      findret = textstr.find('enablesshdsocket')
+      if findret > -1 :
+        command = "sudo /bin/systemctl enable sshd.socket"
+        os.system(command)
+        command = "sudo /bin/systemctl start sshd.socket"
+        os.system(command)
+        #command = "sudo /bin/echo 'install usb-storage /bin/true' > /etc/modprobe.d/block_usb.conf"
+        #os.system(command)
+        message = '"' + "sshdsocketisenable" + '"'
+        send_message(message)
+        continue
+      findret = textstr.find('disablesshdsocket')
+      if findret > -1 :
+        command = "sudo /bin/systemctl stop sshd.socket"
+        os.system(command)
+        command = "sudo /bin/systemctl disable sshd.socket"
+        os.system(command)
+        #command = "sudo /bin/echo 'install usb-storage /bin/true' > /etc/modprobe.d/block_usb.conf"
+        #os.system(command)
+        message = '"' + "sshdsocketisdisable" + '"'
+        send_message(message)
+        continue
+      findret = textstr.find('chromiumexit')
+      if findret > -1 :
+        #command = "sudo killall -9 chromium-bin"
+        command = "xdotool key Alt+F4"
+        os.system(command)
+        continue
+      findret = textstr.find('desktoprestart')
+      if findret > -1 :
+        command = "sudo /bin/systemctl restart display-manager"
+        os.system(command)
+        continue
+      findret = textstr.find('systemreboot')
+      if findret > -1 :
+        command = "sudo /sbin/reboot"
+        os.system(command)
+        continue
+      findret = textstr.find('terminal')
+      if findret > -1 :
+        command = "sudo /usr/bin/killall -9 matchbox-keyboard"
+        os.system(command)
+        command = "matchbox-terminal &"
+        cmdoutinfo = os.popen(command).read()
+        continue
+      findret = textstr.find('firefox')
+      if findret > -1 :
+        command = "firefox &"
+        cmdoutinfo = os.popen(command).read()
+        #os.system(command)
+        continue
+      send_message(text)
+
+def Main():
+    read_thread_func(None)
+    sys.exit(0)
+
+if __name__ == '__main__':
+  Main()

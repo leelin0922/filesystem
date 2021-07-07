@@ -1,0 +1,22 @@
+{
+  //"ID":"fibbgagmfejclcmblfijdmahmoljbeim"
+  "key": "MIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDWh1mQMIq+HpjLFKEG1eXIg7T66GzLENpaVKC5JKqTC/KVCF3ZsBVVNq+S5OprO96yOwBdjNSFVl51R9Ot4tiYdPXZf9l4hf0GJnWR4r6aOZtEnl+3IT9F4X/3kn5PmZKv8c6VC/OqxdNr55NcTXiahV5xz5tt2/6LTiGSIn8DKA368bf307cpS0NDibbRcR5u0vJqeG3mnpwfZQu5BKIFMPxl2nG3MgdfF4kkxzG0Q+Dlr1GGZdgQX2F06TtBqKp8O3Sjp79fXivvL8X8faK3i1NUnqSovGqGqv1QPG9Ft4mDWSfpEQrR5/L1OTW9MyRGB2ItpusIrNhBjteQEDbpAgMBAAECggEAac8wOZH3nHXy3pc6JOjzAMcVSHvCzRVu3QbIjwiqqQRHjYIm5+uVWgYy6rzFckaBPF8lev6vA2TqCeZ3XVh5hBiL+c65MFzFw3bMnju7zs2C64FBrE1Vq93hA/bZHeGdG/Kj9ZeDg0M3WA1L/UaoqW4GexPukWzkS0kp/a3N/3umXlR062ddbuUVqVKRnBvFbuuOJLi8OFZbNnvAz11xSnx7lV7KFGfB+2/KybGuQJ7Cqhqlq3iqcvRu+vgQ/0qy+J9eFCvBSxwYdN5lrD0h9cdWFnnBEhGKrtsI2g4aCtyZo2aP62vp9Y9KVzr0xzBL+ifq4G5E7l4Ucr7gVgvwUQKBgQD6NBidHit9IK/Uppv3HtxHXXmgTH6hbMEn5R6zthLu0HIJ/NcYEQLgF9gZsxXPugebo0juMcNDesQ11JJ8Jtq5FuLGtqa9wysq+II8km4Cu/zaCksYXP/LS4lLoIVNyb9qWt/JIk9DOJMx+USdNkxc/EpNjnFo7B2eR/1+k6z7twKBgQDbf6yR3slzm8z5WVrkbJ9opO9IKujn/y6/HFiYvTtheWF6C8tAJ1uMf/ilcgmkO3R5pmakqwmeJ4+v7HCg834wOKDi/gBMOUkei1uP+5LCdVJAqki3omwWX5zNTVPxOqhJOmco+CVugVcJGQ7z77AbUEwKczqpQxbazcraSxOiXwKBgQCa3eYiUktOzw2mjV3abyKfla8z1kVHO56vR/Vh/R/o6+K6ZeLpRZZHCNs8xQmKIzaUUlRRA0I+oV2TiDkHWbFmgVDq+KFqscQle955CZXIYX2XpGlo8h9uQRoBUqFQTcEKXqdHwtHW5MzPUN/0g2hu4cZIDRQLgqKulxbD4zpeLwKBgQCURURfLO1MCNyHO1Lopm9wEqoIR+QYgwoi0pUOaBVqnMG53amoZm2zFObza3sT0420dzEy3s6aZQLsxXy3XIPLMxWLACVXWAMKfPyW4Eucy/+J6v0//pmg62lSTX/8nbD79lWlGSq/4OLYJHMzWJ/Pc4hKLthbahRQLV9v4fMbZQKBgQDxI8uEs+MMc5tGH4b+BzuiGmx1xCFUBZZx1DjIV/SFbyh++9RvSrI6D8Xo0NeWK1/ZHjsWddMIS18OuNueUw+u+OlhwowgFRGMIMn0Ta2x0qAmr7Z8yXXpiDdp+S/K8G5+amkNz/wEiAaQS4YZ",
+  "name": "check homepage",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "description": "Send a message to a native application.",
+  "app": {
+    "launch": {
+      "local_path": "checkbrowser.html"
+    }
+  },
+  "icons": {
+    "16": "16.png",
+    "32": "32.png",
+    "64": "64.png",
+    "128": "128.png"
+  },
+  "permissions": [
+    "nativeMessaging"
+  ]
+}

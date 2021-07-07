@@ -1,0 +1,22 @@
+{
+  //"ID":"dkmjbdkmmdlcmejgicpmocamhaahbmpe"
+  "key": "MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCP6E+h+dBOigxtpcgtE3Ju24B/4yml0Ekf7oG0Qi6UxmBg+liHZLiiAzOm7GvI39PAk5rESV+eQ8HEJ19NHue94M0xfFBgykSe6foXOoFZg4pQGxAjp8dYvv1q+K5tg2wFb2z3T9L6UvBF8qbau2Inz+rOYyl0EGiHg8IT06KkcGKW45yEI5PNuQ9wd4FUR69OMYz/5psUueu/u0ies3kU60z3OW1V7kxTrP1JVIUW0t/D9qsMn1wYG5LDPn7Je+hT5YDxt6VdecMmLgr7uhxbIi57NglV4bDTI7Xfu+mzIMS+0Gi806Gj48nvfkB7bgwGstZ+lA4DS3ZvPXYWWym9AgMBAAECggEAA9I/JRWxXJiJVnMHwvyodf2hpqO1VCgY/P5UFuGIA57V6dVT+vpndbPgj/7oqMuav5sbybkKDzWM5GTIQM/Ahxf8UuNSbhOI6XBcmffNff9CcbiaP9whbL+bkpbaaOGLwYQxMEsAFvITW8Qi/p1psJVyjnrvG5wg7nJG+chNohCotYRVtR0k4gs/QkIbE0gJsQcuJTyJHDHOeLqmuMKULLevMTEjkO3FfU5hHnCoUiJXk+pLyqUtcQSqkZJNd3C9Ibw+Po89SwtqLwd1ZIBmWun3cJBwXFaanfObJsS29x5wkTONvWWo/Wl6IVsT7LP2E6K5/QPnDl2ye4RzTuQMYQKBgQDIf3QmzuOQnqX0szLLe3lp9m4aZ9N111dHmJ4NeQ8q513AyxZFy8+27neoQMiQ5bWE0qbJz8lI5I23+C0J8BJNSqsUsH/eNt6x4MI+k66AT//2nAJ8MkPYzrIY7DkK9qdySrjzKWRLien9zLp+doCAHYPKJwLs/Zsa6+zleS12oQKBgQC3voD4Fm9YEqCcq1dqzZKDaVyFnqGQ4xMuDwtdb4SdIUDrQeWgYGb4rhTeo+LRZTPnnGn/VE3XvfbgBGviQoacjDUFDXnZkhvvVbqVudRkgHnziXTzX5EzB9TIn4ildpN6vVURel5AgM6nDZZx6nc7k76a0JO6yAO3BIUSBDXJnQKBgAlRky5ykzUXipMS+RtoA76fC4MCrFtfxNi5CS+LHt9ZnYvmZISd8muILduOF0RUyNkBiWr701kl9khEqqM5m0AoZkcx5N+JIVSXI7AQ4R1pmnX1zk/Dbk/XW4O5BvWxfRrcyjfTBqxUHqIDL+/MxjAuLv/oTESDjP/1Uy9fMHPBAoGBAJ2ys8+4uZE2U4CDEcDJdICykcTgc7v9F74FDXUAvCl7m9MNuH2fn2C5T5IRyB59JEIZHWQVP8X09Qgo40rKW+vJ7ctLWJPh8XXE9yF/3wjutzvMcoJaOC07AGW7fjS8gzDphDQ++NuVcUcwwzk7yV9pm0IV12SMO5v9FhRzZpKFAoGAFAS0MyUchmuBnIp/6CsmaBEEP7xjNTIIPgaHuBoUO7S2CEDtBCD9n+GQwkgFAW2hiHaBL3mjuTLecrg+idsrHK0yato71lzIHepP1QXBvn6IaUnmoqLzaGy6V+PlN3GWo/OIY9zgB67tzFTf+1uXJWXspZ2FhXr+VR42897xaMw=",
+  "name": "Setup",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "description": "Send a message to a native application.",
+  "app": {
+    "launch": {
+      "local_path": "setup.html"
+    }
+  },
+  "icons": {
+    "16": "16.png",
+    "32": "32.png",
+    "64": "64.png",
+    "128": "128.png"
+  },
+  "permissions": [
+    "nativeMessaging"
+  ]
+}
