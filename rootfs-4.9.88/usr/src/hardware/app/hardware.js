@@ -418,9 +418,18 @@ function connect() {
   updateUiState();
 }
 
+function setup() {
+  //port.postMessage("restart");
+  //chrome.tabs.update({ url: 'chrome://apps' });
+  chrome.tabs.update({ url: 'chrome-extension://dkmjbdkmmdlcmejgicpmocamhaahbmpe/setup.html' });
+  //chrome.tabs.update({ url: ' chrome-extension://fibbgagmfejclcmblfijdmahmoljbeim/checkbrowser.html' });
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('connect-button').addEventListener(
       'click', connect);
+  document.getElementById('setup').addEventListener(
+      'click', setup);
   connect();
   $.getJSON("./configs/system_config.json", function(hardwaretable){
     if( typeof hardwaretable != 'undefined' )

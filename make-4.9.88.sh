@@ -59,6 +59,7 @@ rm -rf rootfs/usr/share/applications/l3afpad.desktop
 rm -rf rootfs/usr/share/applications/shutdown.desktop
 rm -rf rootfs/usr/share/applications/mb-appearance.desktop
 rm -rf rootfs/usr/share/applications/libfm-pref-apps.desktop
+
 #remove debug console(ttymxc0
 #rm -rf rootfs/lib/systemd/system/serial-getty@.service
 #rm -rf rootfs/etc/systemd/system/getty.target.wants/serial-getty@ttymxc0.service
@@ -102,7 +103,6 @@ cp -rf rootfs-4.9.88/* rootfs/.
 #rm -rf rootfs/usr/share/apache2/htdocs
 #cp -arf htdocs rootfs/usr/share/apache2/.
 #echo "chown -R root:root rootfs"
-#chown -R root:root rootfs
 echo "chown -R user:user rootfs/home/user"
 chown -R user:user rootfs/home/user
 #chmod -R 666 rootfs/etc/xdg
@@ -110,6 +110,12 @@ chown -R root:root rootfs/var/spool/cron/
 chown root:root rootfs/usr/bin/crontab
 chown root:root rootfs/usr/libexec/dbus-daemon-launch-helper
 echo $(date '+%Y%m%d%H%M%S') > rootfs/etc/version
+echo "install usb-storage /bin/true" > rootfs/etc/modprobe.d/block_usb.conf
+
+#rm -rf rootfs/usr/share/applications/matchbox-terminal.desktop
+#rm -rf rootfs/usr/share/applications/mozilla-firefox.desktop
+#rm -rf rootfs/usr/share/applications/about.desktop
+rm -rf rootfs/etc/X11/Xsession.d/80matchboxkeyboard.sh
 
 cd rootfs
 echo "tar -jcf ../rootfs.tar.bz2 --totals --checkpoint=.4096 *"
@@ -118,7 +124,7 @@ cd ..
 
 echo "filesystem copy to rootfs.tar.bz2"
 
-cp rootfs.tar.bz2 /mnt/hgfs/dshare/7112/IMX6_L4.1.15_2.0.0_MFG-TOOL/Profiles/Linux/OS\ Firmware/files/rootfs.tar.bz2 
+cp rootfs.tar.bz2 /mnt/hgfs/dshare/7112/outputimage/rootfs.tar.bz2 
 
 sync
 sleep 1

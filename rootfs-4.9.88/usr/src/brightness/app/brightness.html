@@ -44,17 +44,18 @@
     <script src='./brightness.js'></script>
   </head>
   <body>
-<h1>
+    <label id="showtitle" style="width:200px;height:40px;font-size:30px;">Brightness setup :<br></label>
     <button id='connect-button'>Connect</button>
-    <button id='ALS-ON'   style="width:200px;height:40px;font-size:25px;">Turn on ALS</button>
-    <button id='ALS-OFF'   style="width:200px;height:40px;font-size:25px;">Turn off ALS</button>
+    <button id='ALS-ON'   style="width:200px;height:30px;font-size:20px;">Turn on ALS</button>
+    <button id='ALS-OFF'   style="width:200px;height:30px;font-size:20px;">Turn off ALS</button>
 <div class="slidecontainer">
     <br><input id="range" type="range" min="1" max="100" value="85"step="1" class="slider"><br>
 </div>
-    <input id='input-text' min=1 max=100 type='number'  style="width:200px;height:40px;font-size:25px;"/>
-    <button id='send-message-button'  style="width:200px;height:40px;font-size:25px;">Set</button>
+    <input id='input-text' min=1 max=100 type='number'  style="width:200px;height:30px;font-size:20px;"/>
+    <button id='send-message-button'  style="width:200px;height:30px;font-size:20px;">Apply</button>
+    <br><button id='homepage' style="width:200px;height:30px;font-size:20px;">Homepage</button>
+    <button id='setup' style="width:200px;height:30px;font-size:20px;">Setup</button>
     <input id='ALS' type='hidden' />
-</h1>
     <div id='response'></div>
   </body>
 </html>

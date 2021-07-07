@@ -125,6 +125,18 @@ function fapply() {
   startTime();
 }
 
+function homepage() {
+  //port.postMessage("restart");
+  chrome.tabs.update({ url: ' chrome-extension://fibbgagmfejclcmblfijdmahmoljbeim/checkbrowser.html' });
+}
+
+function setup() {
+  //port.postMessage("restart");
+  //chrome.tabs.update({ url: 'chrome://apps' });
+  chrome.tabs.update({ url: 'chrome-extension://dkmjbdkmmdlcmejgicpmocamhaahbmpe/setup.html' });
+  //chrome.tabs.update({ url: ' chrome-extension://fibbgagmfejclcmblfijdmahmoljbeim/checkbrowser.html' });
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('connect-button').addEventListener(
       'click', connect);
@@ -132,6 +144,10 @@ document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('Firefox').addEventListener('click', fFirefox);
   document.getElementById('NONE').addEventListener('click', fNONE);
   document.getElementById('apply').addEventListener('click', fapply);
+  document.getElementById('homepage').addEventListener(
+      'click', homepage);
+  document.getElementById('setup').addEventListener(
+      'click', setup);
   connect();
   updateUiState();
 });

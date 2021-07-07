@@ -49,6 +49,4 @@ CHROME_EXTRA_ARGS="        --use-gl=egl --disable-gpu-compositing --bwsi --no-fi
 
 # Note: exec -a below is a bashism.
 exec -a "$0" "$HERE/chromium-bin" ${CHROME_EXTRA_ARGS} "$@" &
-#$HERE/chromium-bin ${CHROME_EXTRA_ARGS} "$@" &
-#sleep 5
-#xdotool key F11
+

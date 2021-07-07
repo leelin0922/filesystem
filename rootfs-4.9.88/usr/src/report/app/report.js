@@ -179,9 +179,25 @@ function Sendtoftp() {
   updateUiState();
 }
 
+function homepage() {
+  //port.postMessage("restart");
+  chrome.tabs.update({ url: ' chrome-extension://fibbgagmfejclcmblfijdmahmoljbeim/checkbrowser.html' });
+}
+
+function setup() {
+  //port.postMessage("restart");
+  //chrome.tabs.update({ url: 'chrome://apps' });
+  chrome.tabs.update({ url: 'chrome-extension://dkmjbdkmmdlcmejgicpmocamhaahbmpe/setup.html' });
+  //chrome.tabs.update({ url: ' chrome-extension://fibbgagmfejclcmblfijdmahmoljbeim/checkbrowser.html' });
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('connect-button').addEventListener('click', connect);
   document.getElementById('Sendtoftp').addEventListener('click', Sendtoftp);
+  document.getElementById('homepage').addEventListener(
+      'click', homepage);
+  document.getElementById('setup').addEventListener(
+      'click', setup);
   connect();
   updateUiState();
 });

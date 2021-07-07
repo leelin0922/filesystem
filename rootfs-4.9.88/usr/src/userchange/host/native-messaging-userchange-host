@@ -101,6 +101,11 @@ def read_thread_func(queue):
         outputfd = os.popen("sync")
         output = str(outputfd .read()).strip() 
         continue
+      findret = textstr.find('restart')
+      if findret > -1 :
+        command = "sudo /bin/systemctl restart display-manager"
+        os.system(command)
+        continue
       send_message(text)
 
 def Main():

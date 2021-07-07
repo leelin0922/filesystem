@@ -95,6 +95,18 @@ function onDisconnected() {
   updateUiState();
 }
 
+function homepage() {
+  //port.postMessage("restart");
+  chrome.tabs.update({ url: ' chrome-extension://fibbgagmfejclcmblfijdmahmoljbeim/checkbrowser.html' });
+}
+
+function setup() {
+  //port.postMessage("restart");
+  //chrome.tabs.update({ url: 'chrome://apps' });
+  chrome.tabs.update({ url: 'chrome-extension://dkmjbdkmmdlcmejgicpmocamhaahbmpe/setup.html' });
+  //chrome.tabs.update({ url: ' chrome-extension://fibbgagmfejclcmblfijdmahmoljbeim/checkbrowser.html' });
+}
+
 function connect() {
   var hostName = "com.google.chrome.onoff";
   appendMessage("Connecting to native messaging host <b>" + hostName + "</b>")
@@ -111,6 +123,10 @@ document.addEventListener('DOMContentLoaded', function () {
   addevent .addEventListener('click', StartRun);
   var addevent = document.getElementById('StopRun');
   addevent .addEventListener('click', StopRun);
+  document.getElementById('homepage').addEventListener(
+      'click', homepage);
+  document.getElementById('setup').addEventListener(
+      'click', setup);
   connect();
   updateUiState();
 });

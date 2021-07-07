@@ -90,6 +90,11 @@ chown -R root:root rootfs/var/spool/cron/
 chown root:root rootfs/usr/bin/crontab
 chown root:root rootfs/usr/libexec/dbus-daemon-launch-helper
 echo $(date '+%Y%m%d%H%M%S') > rootfs/etc/version
+echo "install usb-storage /bin/true" > rootfs/etc/modprobe.d/block_usb.conf
+
+rm -rf rootfs/usr/share/applications/matchbox-terminal.desktop
+rm -rf rootfs/usr/share/applications/mozilla-firefox.desktop
+rm -rf rootfs/usr/share/applications/about.desktop
 
 cd rootfs
 echo "tar -jcf ../rootfs.tar.bz2 --totals --checkpoint=.4096 *"
@@ -98,7 +103,8 @@ cd ..
 
 echo "filesystem copy to rootfs.tar.bz2"
 
-cp rootfs.tar.bz2 /mnt/hgfs/dshare/7112/IMX6_L4.1.15_2.0.0_MFG-TOOL/Profiles/Linux/OS\ Firmware/files/rootfs.tar.bz2 
+#cp rootfs.tar.bz2 /mnt/hgfs/dshare/7112/IMX6_L4.1.15_2.0.0_MFG-TOOL/Profiles/Linux/OS\ Firmware/files/rootfs.tar.bz2 
+cp rootfs.tar.bz2 /mnt/hgfs/dshare/7112/outputimage/rootfs.tar.bz2 
 
 sync
 sleep 1

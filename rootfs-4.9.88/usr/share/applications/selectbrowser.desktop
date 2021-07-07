@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=Select browser
-Exec=su -c "chromium chrome-extension://enmhknhnlpmkapkbhbgphfmeggoakkgo/webbrowser.html" user
-Icon=information.png
-Terminal=false
-Type=Application
-X-MB-SingleInstance=true
-StartupNotify=false
-Comment=NONE,Chromium or Firefox

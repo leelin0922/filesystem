@@ -27,7 +27,6 @@ function updateUiState() {
     document.getElementById('userpasswd').style.display = 'block';
     document.getElementById('newuserpasswd').style.display = 'block';
     document.getElementById('checkuserpasswd').style.display = 'block';
-
     document.getElementById('setuserpasswd').style.display = 'block';
 
     document.getElementById('roottitle').style.display = 'block';
@@ -37,8 +36,9 @@ function updateUiState() {
     document.getElementById('rootpasswd').style.display = 'block';
     document.getElementById('newrootpasswd').style.display = 'block';
     document.getElementById('checkrootpasswd').style.display = 'block';
-
     document.getElementById('setrootpasswd').style.display = 'block';
+    //document.getElementById('homepage').style.display = 'block';
+    //document.getElementById('setup').style.display = 'block';
   } else {
     document.getElementById('connect-button').style.display = 'block';
 
@@ -49,7 +49,6 @@ function updateUiState() {
     document.getElementById('userpasswd').style.display = 'none';
     document.getElementById('newuserpasswd').style.display = 'none';
     document.getElementById('checkuserpasswd').style.display = 'none';
-
     document.getElementById('setuserpasswd').style.display = 'none';
 
     document.getElementById('roottitle').style.display = 'none';
@@ -59,8 +58,9 @@ function updateUiState() {
     document.getElementById('rootpasswd').style.display = 'none';
     document.getElementById('newrootpasswd').style.display = 'none';
     document.getElementById('checkrootpasswd').style.display = 'none';
-
     document.getElementById('setrootpasswd').style.display = 'none';
+    //document.getElementById('homepage').style.display = 'none';
+    //document.getElementById('setup').style.display = 'none';
   }
 }
 
@@ -150,6 +150,18 @@ function setrootpasswd() {
   }
 }
 
+function homepage() {
+  //port.postMessage("restart");
+  chrome.tabs.update({ url: ' chrome-extension://fibbgagmfejclcmblfijdmahmoljbeim/checkbrowser.html' });
+}
+
+function setup() {
+  //port.postMessage("restart");
+  //chrome.tabs.update({ url: 'chrome://apps' });
+  chrome.tabs.update({ url: 'chrome-extension://dkmjbdkmmdlcmejgicpmocamhaahbmpe/setup.html' });
+  //chrome.tabs.update({ url: ' chrome-extension://fibbgagmfejclcmblfijdmahmoljbeim/checkbrowser.html' });
+}
+
 function onNativeMessage(message) {
   var inputstr=message.replace('"','');
   inputstr=inputstr.replace('"','');
@@ -211,6 +223,10 @@ document.addEventListener('DOMContentLoaded', function () {
       'click', setuserpasswd);
   document.getElementById('setrootpasswd').addEventListener(
       'click', setrootpasswd);
+  document.getElementById('homepage').addEventListener(
+      'click', homepage);
+  document.getElementById('setup').addEventListener(
+      'click', setup);
   connect();
   updateUiState();
 });

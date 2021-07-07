@@ -5,9 +5,9 @@
 {
   "name": "com.google.chrome.report",
   "description": "Chrome Native Messaging API burnin Host",
-  "path": "HOST_PATH",
+  "path": "/usr/src/report/host/native-messaging-report-host",
   "type": "stdio",
   "allowed_origins": [
-    //"chrome-extension://afbdchpfhcnhhofcmndgbpfoameodpkf/"
+    "chrome-extension://blhadincaomkeiepkgnbeefnfbnkfbik/"
   ]
 }
