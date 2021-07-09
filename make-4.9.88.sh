@@ -115,7 +115,7 @@ echo "install usb-storage /bin/true" > rootfs/etc/modprobe.d/block_usb.conf
 #rm -rf rootfs/usr/share/applications/matchbox-terminal.desktop
 #rm -rf rootfs/usr/share/applications/mozilla-firefox.desktop
 #rm -rf rootfs/usr/share/applications/about.desktop
-rm -rf rootfs/etc/X11/Xsession.d/80matchboxkeyboard.sh
+#rm -rf rootfs/etc/X11/Xsession.d/80matchboxkeyboard.sh
 
 cd rootfs
 echo "tar -jcf ../rootfs.tar.bz2 --totals --checkpoint=.4096 *"

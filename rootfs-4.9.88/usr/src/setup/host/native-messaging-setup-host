@@ -108,11 +108,17 @@ def read_thread_func(queue):
         continue
       findret = textstr.find('disableusbstorage')
       if findret > -1 :
+        command = "sudo /bin/umount /dev/sd*"
+        os.system(command)
+        command = "sudo /sbin/rmmod usb_storage"
+        os.system(command)
         command = "sudo /bin/touch /etc/modprobe.d/block_usb.conf"
         os.system(command)
         command = "sudo /bin/chmod 777 /etc/modprobe.d/block_usb.conf"
         os.system(command)
         command = "sudo /bin/echo 'install usb-storage /bin/true' > /etc/modprobe.d/block_usb.conf"
+        os.system(command)
+        command = "sudo /bin/rmmod usb_storage"
         os.system(command)
         message = '"' + "usbstorageisdisable" + '"'
         send_message(message)
@@ -123,8 +129,6 @@ def read_thread_func(queue):
         os.system(command)
         command = "sudo /bin/systemctl start sshd.socket"
         os.system(command)
-        #command = "sudo /bin/echo 'install usb-storage /bin/true' > /etc/modprobe.d/block_usb.conf"
-        #os.system(command)
         message = '"' + "sshdsocketisenable" + '"'
         send_message(message)
         continue
@@ -134,8 +138,6 @@ def read_thread_func(queue):
         os.system(command)
         command = "sudo /bin/systemctl disable sshd.socket"
         os.system(command)
-        #command = "sudo /bin/echo 'install usb-storage /bin/true' > /etc/modprobe.d/block_usb.conf"
-        #os.system(command)
         message = '"' + "sshdsocketisdisable" + '"'
         send_message(message)
         continue

@@ -80,15 +80,17 @@ root ALL=(ALL) ALL
 user ALL=NOPASSWD: /bin/chmod
 user ALL=NOPASSWD: /bin/date
 user ALL=NOPASSWD: /bin/echo
+user ALL=NOPASSWD: /bin/umount
 user ALL=NOPASSWD: /bin/rm
 user ALL=NOPASSWD: /bin/systemctl
 user ALL=NOPASSWD: /bin/touch
-user ALL=NOPASSWD: /usr/bin/killall
 user ALL=NOPASSWD: /sbin/hwclock
 user ALL=NOPASSWD: /sbin/reboot
+user ALL=NOPASSWD: /sbin/rmmod
 user ALL=NOPASSWD: /usr/bin/timedatectl
-user ALL=NOPASSWD: /usr/sbin/chpasswd.shadow
+user ALL=NOPASSWD: /usr/bin/killall
 user ALL=NOPASSWD: /usr/bin/checkpassword.out
+user ALL=NOPASSWD: /usr/sbin/chpasswd.shadow
 
 ## Uncomment to allow members of group wheel to execute any command
 # %wheel ALL=(ALL) ALL

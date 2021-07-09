@@ -84,19 +84,19 @@ function updateUiState() {
   }
   if(    document.getElementById('usbstorageflag').value == 1)
   {
-    document.getElementById('usbstorage').innerHTML= 'Disable USB storage';
+    document.getElementById('usbstorage').innerHTML= 'To disable USB storage';
   }
   else
   {
-    document.getElementById('usbstorage').innerHTML= 'Enable USB storage';
+    document.getElementById('usbstorage').innerHTML= 'To enable USB storage';
   }
   if(  document.getElementById('sshdsocketflag').value == 1)
   {
-    document.getElementById('sshdsocket').innerHTML= 'Disable sshd.socket';
+    document.getElementById('sshdsocket').innerHTML= 'To disable sshd.socket';
   }
   else
   {
-    document.getElementById('sshdsocket').innerHTML= 'Enable sshd.socket';
+    document.getElementById('sshdsocket').innerHTML= 'To enable sshd.socket';
   }
 }
 
