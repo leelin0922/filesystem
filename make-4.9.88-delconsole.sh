@@ -9,12 +9,34 @@ else
 fi
 echo "rm -rf rootfs"
 rm -rf rootfs
+mkdir rootfs
+echo "tar -xf rootfs-org.tar.bz2 --totals --checkpoint=.8192 -C rootfs"
+tar -xf rootfs-org.tar.bz2 --totals --checkpoint=.8192 -C rootfs
+
 find -iname "*.bak" -exec rm -rf {} \;
 find -iname "*~" -exec rm -rf {} \;
 sync
-mkdir rootfs
-echo "tar -xf rootfs-org.tar.bz2 --totals --checkpoint=.4096 -C rootfs"
-tar -xf rootfs-org.tar.bz2 --totals --checkpoint=.4096 -C rootfs
+# add firmware.desktop
+#rm -rf rootfs-4.9.88/usr/share/applications/firmware.desktop
+#echo "[Desktop Entry]" > rootfs-4.9.88/usr/share/applications/firmware.desktop
+#echo "Name=Firmware version" >> rootfs-4.9.88/usr/share/applications/firmware.desktop
+#echo "Exec=test" >> rootfs-4.9.88/usr/share/applications/firmware.desktop
+#echo "Icon=information.png" >> rootfs-4.9.88/usr/share/applications/firmware.desktop
+#echo "Terminal=false" >> rootfs-4.9.88/usr/share/applications/firmware.desktop
+#echo "Type=Application" >> rootfs-4.9.88/usr/share/applications/firmware.desktop
+#echo "X-MB-SingleInstance=true" >> rootfs-4.9.88/usr/share/applications/firmware.desktop
+#echo "StartupNotify=false" >> rootfs-4.9.88/usr/share/applications/firmware.desktop
+#currentdate=$(date '+%Y%m%d')
+#echo "Comment="$currentdate >> rootfs-4.9.88/usr/share/applications/firmware.desktop
+# add histoty.txt
+#rm -rf rootfs-4.9.88/home/user/history.txt
+#echo "Update history" > rootfs-4.9.88/home/user/history.txt
+#echo "Date:20191030" >> rootfs-4.9.88/home/user/history.txt
+#echo "1,Change password" >> rootfs-4.9.88/home/user/history.txt
+#echo "2,fix chromium startup page" >> rootfs-4.9.88/home/user/history.txt
+#echo "Date:20191031" >> rootfs-4.9.88/home/user/history.txt
+#echo "Add history" >> rootfs-4.9.88/home/user/history.txt
+
 
 echo "delete unused data"
 rm -rf rootfs/opt
@@ -38,6 +60,7 @@ rm -rf rootfs/usr/share/applications/l3afpad.desktop
 rm -rf rootfs/usr/share/applications/shutdown.desktop
 rm -rf rootfs/usr/share/applications/mb-appearance.desktop
 rm -rf rootfs/usr/share/applications/libfm-pref-apps.desktop
+
 #remove debug console(ttymxc0
 rm -rf rootfs/lib/systemd/system/serial-getty@.service
 rm -rf rootfs/etc/systemd/system/getty.target.wants/serial-getty@ttymxc0.service
@@ -92,13 +115,14 @@ chown root:root rootfs/usr/libexec/dbus-daemon-launch-helper
 echo $(date '+%Y%m%d%H%M%S') > rootfs/etc/version
 echo "install usb-storage /bin/true" > rootfs/etc/modprobe.d/block_usb.conf
 
-rm -rf rootfs/usr/share/applications/matchbox-terminal.desktop
-rm -rf rootfs/usr/share/applications/mozilla-firefox.desktop
-rm -rf rootfs/usr/share/applications/about.desktop
+#rm -rf rootfs/usr/share/applications/matchbox-terminal.desktop
+#rm -rf rootfs/usr/share/applications/mozilla-firefox.desktop
+#rm -rf rootfs/usr/share/applications/about.desktop
+rm -rf rootfs/etc/X11/Xsession.d/80matchboxkeyboard.sh
 
 cd rootfs
-echo "tar -jcf ../rootfs.tar.bz2 --totals --checkpoint=.4096 *"
-tar -jcf ../rootfs.tar.bz2 --totals --checkpoint=.4096 *
+echo "tar -jcf ../rootfs.tar.bz2 --totals --checkpoint=.8192 *"
+tar -jcf ../rootfs.tar.bz2 --totals --checkpoint=.8192 *
 cd ..
 
 echo "filesystem copy to rootfs.tar.bz2"

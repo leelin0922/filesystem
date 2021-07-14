@@ -13,12 +13,10 @@ mkdir rootfs
 echo "tar -xf rootfs-org.tar.bz2 --totals --checkpoint=.8192 -C rootfs"
 tar -xf rootfs-org.tar.bz2 --totals --checkpoint=.8192 -C rootfs
 
-cd rootfs
 find -iname "*.bak" -exec rm -rf {} \;
 find -iname "*~" -exec rm -rf {} \;
 sync
 
-cd ..
 echo "delete unused data"
 rm -rf rootfs/opt
 rm -rf rootfs/unit_tests

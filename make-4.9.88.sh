@@ -9,6 +9,10 @@ else
 fi
 echo "rm -rf rootfs"
 rm -rf rootfs
+mkdir rootfs
+echo "tar -xf rootfs-org.tar.bz2 --totals --checkpoint=.8192 -C rootfs"
+tar -xf rootfs-org.tar.bz2 --totals --checkpoint=.8192 -C rootfs
+
 find -iname "*.bak" -exec rm -rf {} \;
 find -iname "*~" -exec rm -rf {} \;
 sync
@@ -33,9 +37,6 @@ sync
 #echo "Date:20191031" >> rootfs-4.9.88/home/user/history.txt
 #echo "Add history" >> rootfs-4.9.88/home/user/history.txt
 
-mkdir rootfs
-echo "tar -xf rootfs-org.tar.bz2 --totals --checkpoint=.4096 -C rootfs"
-tar -xf rootfs-org.tar.bz2 --totals --checkpoint=.4096 -C rootfs
 
 echo "delete unused data"
 rm -rf rootfs/opt
@@ -83,6 +84,7 @@ find -iname "CHINA*" -exec rm -rf {} \;
 #rm -rf rootfs/etc/modules-load.d/galcore.conf
 
 #find -iname "test" -exec rm -rf {} \;
+
 rm -rf rootfs-4.9.88/usr/share/applications/about.desktop
 echo "[Desktop Entry]" > rootfs-4.9.88/usr/share/applications/about.desktop
 #echo "Name=about" >> rootfs-4.9.88/usr/share/applications/about.desktop
@@ -103,6 +105,7 @@ cp -rf rootfs-4.9.88/* rootfs/.
 #rm -rf rootfs/usr/share/apache2/htdocs
 #cp -arf htdocs rootfs/usr/share/apache2/.
 #echo "chown -R root:root rootfs"
+#chown -R root:root rootfs
 echo "chown -R user:user rootfs/home/user"
 chown -R user:user rootfs/home/user
 #chmod -R 666 rootfs/etc/xdg
@@ -115,15 +118,16 @@ echo "install usb-storage /bin/true" > rootfs/etc/modprobe.d/block_usb.conf
 #rm -rf rootfs/usr/share/applications/matchbox-terminal.desktop
 #rm -rf rootfs/usr/share/applications/mozilla-firefox.desktop
 #rm -rf rootfs/usr/share/applications/about.desktop
-#rm -rf rootfs/etc/X11/Xsession.d/80matchboxkeyboard.sh
+rm -rf rootfs/etc/X11/Xsession.d/80matchboxkeyboard.sh
 
 cd rootfs
-echo "tar -jcf ../rootfs.tar.bz2 --totals --checkpoint=.4096 *"
-tar -jcf ../rootfs.tar.bz2 --totals --checkpoint=.4096 *
+echo "tar -jcf ../rootfs.tar.bz2 --totals --checkpoint=.8192 *"
+tar -jcf ../rootfs.tar.bz2 --totals --checkpoint=.8192 *
 cd ..
 
 echo "filesystem copy to rootfs.tar.bz2"
 
+#cp rootfs.tar.bz2 /mnt/hgfs/dshare/7112/IMX6_L4.1.15_2.0.0_MFG-TOOL/Profiles/Linux/OS\ Firmware/files/rootfs.tar.bz2 
 cp rootfs.tar.bz2 /mnt/hgfs/dshare/7112/outputimage/rootfs.tar.bz2 
 
 sync
