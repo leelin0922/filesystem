@@ -48,6 +48,20 @@ chmod -f 666 /sys/class/backlight/pwm-backlight.0/brightness
 chmod -f 666 /sys/class/backlight/pwm-backlight.1/brightness
 chmod -f 666 /sys/kernel/comportmode/curr_mode
 
+if [ -e "/dev/fb" ]; then
+    if [ -z "$DISPLAY_WIDTH_PIXELS" ]; then
+        export DISPLAY_WIDTH_PIXELS=$(/usr/sbin/fbset | grep geometry | awk '{ print $2 }')
+    fi
+
+    if [ -z "$DISPLAY_HEIGHT_PIXELS" ]; then
+        export DISPLAY_HEIGHT_PIXELS=$(/usr/sbin/fbset | grep geometry | awk '{ print $3 }')
+    fi
+
+    if [ -z "$DISPLAY_BPP" ]; then
+        export DISPLAY_BPP=$(/usr/sbin/fbset | grep geometry | awk '{ print $6 }')
+    fi
+fi
+
 if [ ! "$(ls -ld /home/user | awk '{print $3}')" = "user" ]; then
 chown -R user:user /home/user
 cp /usr/share/backupapp/Preferences /home/user/.config/chromium/Default/Preferences

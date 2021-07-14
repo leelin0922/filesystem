@@ -17,6 +17,10 @@ function appendMessage(text) {
   document.getElementById('response').innerHTML += "<p>" + text + "</p>";
 }
 
+function clearMessage(text) {
+  document.getElementById('response').innerHTML = "";
+}
+
 function updateUiState() {
   if (port) {
     document.getElementById('connect-button').style.display = 'none';
@@ -84,19 +88,19 @@ function updateUiState() {
   }
   if(    document.getElementById('usbstorageflag').value == 1)
   {
-    document.getElementById('usbstorage').innerHTML= 'To disable USB storage';
+    document.getElementById('usbstorage').innerHTML= 'To Disable USB Storage';
   }
   else
   {
-    document.getElementById('usbstorage').innerHTML= 'To enable USB storage';
+    document.getElementById('usbstorage').innerHTML= 'To Enable USB Storage';
   }
   if(  document.getElementById('sshdsocketflag').value == 1)
   {
-    document.getElementById('sshdsocket').innerHTML= 'To disable sshd.socket';
+    document.getElementById('sshdsocket').innerHTML= 'To Disable sshd.socket';
   }
   else
   {
-    document.getElementById('sshdsocket').innerHTML= 'To enable sshd.socket';
+    document.getElementById('sshdsocket').innerHTML= 'To Enable sshd.socket';
   }
 }
 
@@ -266,6 +270,7 @@ function startTimefirefox() {
   if(counter>15)
   {
     document.getElementById('firefox').disabled= false;
+    clearMessage();
     return;
   }
   var t = setTimeout(function(){ startTimefirefox() }, 1000);
@@ -280,6 +285,7 @@ function terminal() {
 
 function firefox() {
   document.getElementById('firefox').disabled= true;
+  appendMessage("Please wait, Firefox is loading now.")
   port.postMessage("firefox");
   counter=0;
   startTimefirefox();

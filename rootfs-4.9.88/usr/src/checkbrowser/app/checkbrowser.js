@@ -71,10 +71,9 @@ function alertFunc() {
 
 function startTime() {
   counter--;
+  clearTimeout(myTimer);
   if(counter<0)
   {
-    clearTimeout(myTimer);
-    myTimer = null;
     chrome.tabs.update({ url: document.getElementById('startuppage').value});
     return;
   }
@@ -83,8 +82,6 @@ function startTime() {
     if(gethomepage==0 && counter<5)
     {
       //chrome.tabs.update({ url: 'chrome://apps' });
-      clearTimeout(myTimer);
-      myTimer = null;
       chrome.tabs.update({ url: 'chrome-extension://ngkflanckphikledkbnbocalfbfkeaij/startuppage.html' });
       return;
     }
@@ -95,11 +92,7 @@ function startTime() {
 
 function fapply() {
   //chrome.tabs.update({ url: 'chrome://apps' });
-  if(myTimer!=null)
-  {
-    clearTimeout(myTimer);
-    myTimer = null;
-  }
+  clearTimeout(myTimer);
   chrome.tabs.update({ url: 'chrome-extension://dkmjbdkmmdlcmejgicpmocamhaahbmpe/setup.html' });
   //chrome.tabs.update({ url: 'https://www.google.com/_/chrome/newtab' });
 }
