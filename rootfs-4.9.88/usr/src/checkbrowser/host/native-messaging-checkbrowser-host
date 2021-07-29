@@ -25,11 +25,19 @@ def send_message(message):
 # Thread that reads messages from the webapp.
 def read_thread_func(queue):
   jiffy = os.sysconf(os.sysconf_names['SC_CLK_TCK'])
+  Webpage=""
   outputfd = os.popen("cat /home/user/webpage")
   outputstr = str(outputfd.read()).rstrip()
   if outputstr :
+    Webpage=str(outputstr);
     sendtext='"' + "webpage:" +str(outputstr)+'"'
     send_message(sendtext)
+    #sendtext='"' + Webpage +'"'
+    #send_message(sendtext)
+  y=os.path.isfile("/home/user/startfirefox")
+  if y == True :
+    message = '"' + "startupfirefox" + '"'
+    send_message(message)
   message_number = 0
   while 1:
     # Read the message length (first 4 bytes).
@@ -51,14 +59,13 @@ def read_thread_func(queue):
     else:
       # In headless mode just send an echo message back.
       #send_message(test)
-      findret = textstr.find('startuppage=')
+      findret = textstr.find('runfirefox')
       if findret > -1 :
-        Webpage= textstr.replace('startuppage=','')
-        commandstr=" rm -rf /home/user/webpage"
-        os.system(commandstr)
-        os.system("sync")
-        commandstr="echo " +"'" + Webpage +"'" + ">>" + "/home/user/webpage"
-        os.system(commandstr)
+        commandstr="firefox " + Webpage + " &"
+        cmdoutinfo = os.popen(commandstr).read()
+        #os.system(commandstr)
+        #message = '"' + commandstr + '"'
+        #send_message(message)
         continue
       send_message(text)
 

@@ -47,7 +47,8 @@ chmod -f 666 /dev/hidraw*
 chmod -f 666 /sys/class/backlight/pwm-backlight.0/brightness
 chmod -f 666 /sys/class/backlight/pwm-backlight.1/brightness
 chmod -f 666 /sys/kernel/comportmode/curr_mode
-
+echo 0 > /sys/class/vtconsole/vtcon0/bind
+echo 0 > /sys/class/vtconsole/vtcon1/bind
 if [ -e "/dev/fb" ]; then
     if [ -z "$DISPLAY_WIDTH_PIXELS" ]; then
         export DISPLAY_WIDTH_PIXELS=$(/usr/sbin/fbset | grep geometry | awk '{ print $2 }')

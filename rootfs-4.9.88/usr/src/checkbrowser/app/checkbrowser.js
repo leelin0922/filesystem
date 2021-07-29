@@ -3,7 +3,8 @@
 // found in the LICENSE file.
 
 var port = null;
-var oldtest=null;
+var gethomepage=0;
+var startfirefox=0;
 var counter=0;
 var myTimer=null;
 var getKeys = function(obj){
@@ -21,21 +22,18 @@ function appendMessage(text) {
 function updateUiState() {
   if (port) {
     document.getElementById('connect-button').style.display = 'none';
-    document.getElementById('showsetup').style.display = 'block';
+    document.getElementById('apply').style.display = 'block';
   } else {
     document.getElementById('connect-button').style.display = 'block';
-    document.getElementById('showsetup').style.display = 'none';
+    document.getElementById('apply').style.display = 'none';
   }
 }
 
 function sendNativeMessage() {
-  //message = document.getElementById('temperature').value;
-  //port.postMessage(message);
   appendMessage("Sent message: <b>" + JSON.stringify(message) + "</b>");
 }
 
 function onNativeMessage(message) {
-  //appendMessage("Received message: <b>" + JSON.stringify(message) + "</b>");
   var inputstr=message.replace('"','');
   stroffset=inputstr.search("webpage:");
   if(stroffset>=0)
@@ -43,6 +41,12 @@ function onNativeMessage(message) {
     inputstr=message.replace('webpage:','');
     document.getElementById('startuppage').value=inputstr;
     gethomepage=1;
+    return;
+  }
+  stroffset=inputstr.search("startupfirefox");
+  if(stroffset>=0)
+  {
+    startfirefox=1;
     return;
   }
   appendMessage("Received message: <b>" + JSON.stringify(message) + "</b>");
@@ -63,10 +67,16 @@ function connect() {
   updateUiState();
 }
 
-function alertFunc() {
-  var currentTime = new Date().getTime();
-  while (currentTime + miliseconds >= new Date().getTime()) {
+function startTimefirefox() {
+  counter++;
+  if(counter>20)
+  {
+    clearTimeout(myTimer);
+    updateUiState();
+    document.getElementById('apply').disabled= false;
+    return;
   }
+  myTimer = setTimeout(function(){ startTimefirefox() }, 1000);
 }
 
 function startTime() {
@@ -74,14 +84,30 @@ function startTime() {
   clearTimeout(myTimer);
   if(counter<0)
   {
-    chrome.tabs.update({ url: document.getElementById('startuppage').value});
-    return;
+    clearTimeout(myTimer);
+    if(startfirefox==0)
+    {
+      chrome.tabs.update({ url: document.getElementById('startuppage').value});
+      return;
+    }
+    else
+    {
+      document.getElementById('apply').disabled= true;
+      port.postMessage("runfirefox");
+      counter=0;
+      appendMessage("Please wait, Firefox is loading now.")
+      startTimefirefox();
+      //chrome.tabs.update({ url: 'chrome-extension://dkmjbdkmmdlcmejgicpmocamhaahbmpe/setup.html' });
+      return;
+    }
   }
   else
   {
+    clearTimeout(myTimer);
     if(gethomepage==0 && counter<5)
     {
       //chrome.tabs.update({ url: 'chrome://apps' });
+      clearTimeout(myTimer);
       chrome.tabs.update({ url: 'chrome-extension://ngkflanckphikledkbnbocalfbfkeaij/startuppage.html' });
       return;
     }
@@ -90,7 +116,7 @@ function startTime() {
   myTimer = setTimeout(function(){ startTime() }, 1000);
 }
 
-function fapply() {
+function apply() {
   //chrome.tabs.update({ url: 'chrome://apps' });
   clearTimeout(myTimer);
   chrome.tabs.update({ url: 'chrome-extension://dkmjbdkmmdlcmejgicpmocamhaahbmpe/setup.html' });
@@ -100,7 +126,7 @@ function fapply() {
 document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('connect-button').addEventListener(
       'click', connect);
-  document.getElementById('apply').addEventListener('click', fapply);
+  document.getElementById('apply').addEventListener('click', apply);
   connect();
   updateUiState();
   counter=6;

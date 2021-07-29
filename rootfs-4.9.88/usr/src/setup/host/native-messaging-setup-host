@@ -46,6 +46,13 @@ def read_thread_func(queue):
   else :
     message = '"' + "usbstorageisenable" + '"'
     send_message(message)
+  y=os.path.isfile("/home/user/startfirefox")
+  if y == True :
+    message = '"' + "enabledstartfirefox" + '"'
+    send_message(message)
+  else :
+    message = '"' + "disabledstartfirefox" + '"'
+    send_message(message)
   command = "sudo /bin/systemctl status sshd.socket | grep active | grep listen"
   cmdoutinfo = os.popen(command).read()
   findret = cmdoutinfo.find('active')
@@ -98,6 +105,11 @@ def read_thread_func(queue):
         else:
           message = '"' + "Checkpasswordfail" + '"'
           send_message(message)
+        continue
+      findret = textstr.find('removeauthored')
+      if findret > -1 :
+        command = "sudo /bin/rm /tmp/hadauthored"
+        os.system(command)
         continue
       findret = textstr.find('enableusbstorage')
       if findret > -1 :
@@ -164,11 +176,25 @@ def read_thread_func(queue):
         command = "matchbox-terminal &"
         cmdoutinfo = os.popen(command).read()
         continue
-      findret = textstr.find('firefox')
+      findret = textstr.find('runfirefox')
       if findret > -1 :
         command = "firefox &"
         cmdoutinfo = os.popen(command).read()
         #os.system(command)
+        continue
+      findret = textstr.find('enablestartfirefox')
+      if findret > -1 :
+        command = "sudo /bin/touch /home/user/startfirefox"
+        os.system(command)
+        message = '"' + "enabledstartfirefox" + '"'
+        send_message(message)
+        continue
+      findret = textstr.find('disablestartfirefox')
+      if findret > -1 :
+        command = "sudo /bin/rm /home/user/startfirefox"
+        os.system(command)
+        message = '"' + "disabledstartfirefox" + '"'
+        send_message(message)
         continue
       send_message(text)
 

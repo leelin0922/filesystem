@@ -9,7 +9,7 @@
     <label id="showversion" style=font-size:20px>File System Build Date:
       <input type="text" id="version" name="version" value="" style="width:200px;height:30px;font-size:20px;" disabled/>
     </label>
-    <label id="labelusername" style=font-size:20px>username: 
+    <label id="labelusername" style=font-size:20px><br>username: 
         <input id='username' type='text' style="width:200px;height:30px;font-size:20px;">
     </label>
     <label id="labeluserpasswd" style=font-size:20px>password: 
@@ -28,14 +28,15 @@
     <input type="button" id='firefox' style="width:64px;height:64px;background-image:url('firefox.png');">
 
     <br><br><button id='chromiumexit' style="width:250px;height:30px;font-size:20px;">Kiosk Mode Exit</button>
-    <button id='usbstorage' style="width:250px;height:30px;font-size:20px;">USB storage</button>
+    <button id='startfirefox' style="width:250px;height:30px;font-size:20px;">Firefox</button>
     <br><br><button id='desktoprestart' style="width:250px;height:30px;font-size:20px;">Desktop Restart</button>
     <button id='systemreboot' style="width:250px;height:30px;font-size:20px;">System Reboot</button>
     <br><br><button id='sshdsocket' style="width:250px;height:30px;font-size:20px;">ssh.socket</button>
-    <input id='status' type='hidden' />
+    <button id='usbstorage' style="width:250px;height:30px;font-size:20px;">USB storage</button>
     <div id='response'></div>
     <input id='authored' type='hidden' />
     <input id='usbstorageflag' type='hidden' />
     <input id='sshdsocketflag' type='hidden' />
+    <input id='startfirefoxflag' type='hidden' />
   </body>
 </html>

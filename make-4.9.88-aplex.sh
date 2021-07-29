@@ -9,13 +9,14 @@ else
 fi
 echo "rm -rf rootfs"
 rm -rf rootfs
-mkdir rootfs
-echo "tar -xf rootfs-org.tar.bz2 --totals --checkpoint=.8192 -C rootfs"
-tar -xf rootfs-org.tar.bz2 --totals --checkpoint=.8192 -C rootfs
 
 find -iname "*.bak" -exec rm -rf {} \;
 find -iname "*~" -exec rm -rf {} \;
 sync
+
+mkdir rootfs
+echo "tar -xf rootfs-org.tar.bz2 --totals --checkpoint=.8192 -C rootfs"
+tar -xf rootfs-org.tar.bz2 --totals --checkpoint=.8192 -C rootfs
 
 echo "delete unused data"
 rm -rf rootfs/opt
@@ -34,8 +35,6 @@ rm -rf rootfs/usr/share/applications/samegame.desktop
 rm -rf rootfs/usr/share/applications/slant.desktop
 rm -rf rootfs/usr/share/applications/org.gnome.Sysprof2.desktop
 rm -rf rootfs/usr/share/applications/pcmanfm.desktop
-
-#
 #rm -rf rootfs/usr/share/applications/xinput_calibrator.desktop
 rm -rf rootfs/usr/share/applications/gst-player.desktop
 rm -rf rootfs/usr/share/applications/l3afpad.desktop
@@ -84,6 +83,8 @@ chown root:root rootfs/usr/bin/crontab
 chown root:root rootfs/usr/libexec/dbus-daemon-launch-helper
 echo $(date '+%Y%m%d%H%M%S') > rootfs/etc/version
 
+rm -rf rootfs/usr/share/applications/xinput_calibrator.desktop
+
 cd rootfs
 echo "tar -jcf ../rootfs.tar.bz2 --totals --checkpoint=.8192 *"
 tar -jcf ../rootfs.tar.bz2 --totals --checkpoint=.8192 *
@@ -91,7 +92,8 @@ cd ..
 
 echo "filesystem copy to rootfs.tar.bz2"
 
-cp rootfs.tar.bz2 /mnt/hgfs/dshare/7112/IMX6_L4.1.15_2.0.0_MFG-TOOL/Profiles/Linux/OS\ Firmware/files/rootfs.tar.bz2 
+#cp rootfs.tar.bz2 /mnt/hgfs/dshare/7112/IMX6_L4.1.15_2.0.0_MFG-TOOL/Profiles/Linux/OS\ Firmware/files/rootfs.tar.bz2 
+cp rootfs.tar.bz2 /mnt/hgfs/dshare/7112/outputimage/rootfs.tar.bz2 
 
 sync
 sleep 1

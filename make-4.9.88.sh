@@ -9,12 +9,14 @@ else
 fi
 echo "rm -rf rootfs"
 rm -rf rootfs
+
+find -iname "*.bak" -exec rm -rf {} \;
+find -iname "*~" -exec rm -rf {} \;
+
 mkdir rootfs
 echo "tar -xf rootfs-org.tar.bz2 --totals --checkpoint=.8192 -C rootfs"
 tar -xf rootfs-org.tar.bz2 --totals --checkpoint=.8192 -C rootfs
 
-find -iname "*.bak" -exec rm -rf {} \;
-find -iname "*~" -exec rm -rf {} \;
 sync
 # add firmware.desktop
 #rm -rf rootfs-4.9.88/usr/share/applications/firmware.desktop
